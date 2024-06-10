@@ -1,0 +1,75 @@
+<div class="field">
+    <label class="field__container"> 
+        <div class="field__header">
+            @if( legendName ) {
+                <legend class="
+                    field__legend
+                    font__size--b2
+                    "> 
+                    {{  legendName  }} 
+                </legend>
+            }
+              <!-- ? ICON CONTAINER -->
+              @if(iconEye) {
+                <div class="field__header--icon cursor--pointer" (click)="changeTypePassword()">
+                    <!-- ICON -->
+                    <img 
+                        width="17"
+                        height="17"
+                        [alt]="inputType"
+                        [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/icon/icon-type-'+inputType+'.svg'"
+                    >
+                    <!-- TXT -->
+                    @if(inputType === 'text') {
+                        <p class="
+                            font__size--c1
+                            font__weight--regular
+                            font__color--secondary
+                            "> {{ 'button.hide' | translate:translateService.GetLang }} </p>
+                    }
+                    @else if(inputType === 'password') {
+                        <p class="
+                            font__size--c1
+                            font__weight--regular
+                            font__color--secondary
+                            "> {{ 'button.show' | translate:translateService.GetLang }} </p>
+                    }
+                </div>
+            }
+        </div>
+        <input  
+            class="input"
+            [type]="inputType" 
+            (change)="changeText($event)"
+            [placeholder]="placeholder"
+            [autocomplete]="autocomplete"
+            [maxLength]="maxLength"
+            [minLength]="minLength"
+            [disabled]="isDisabled"
+            [value]="fieldValue"
+            [ngClass]="{ 'input--error' : isSubmitted }
+        ">
+        @if(showIcon) {
+            <img
+                class="field__icon"
+                width="17" 
+                height="17"
+                [alt]="iconName"
+                [ngSrc]="'../../../../assets/theme/'+ localStorageService.GetMode +'/icon/'+iconName+'.svg'"
+            >
+        }
+
+    </label>
+    <!-- ! ERROR MSN -->
+    @if ( isSubmitted ) {
+        <span class="
+                font__size--c1 
+                font__weight--regular 
+                input--error_msn
+            "> 
+            {{errorMessage}} 
+            
+        </span>
+    }
+    
+</div>

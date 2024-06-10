@@ -1,0 +1,14 @@
+<p>
+    Server status :
+    <span  [ngClass]="{
+            'success': wsService.socketStatus,
+            'danger': !wsService.socketStatus
+        }">
+        @if (wsService.socketStatus) {
+            Online
+        }
+        @else {
+            Offline
+        }
+    </span>
+</p>

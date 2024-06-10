@@ -1,0 +1,67 @@
+{
+    "menu":{
+        "appearance":"Appearance",
+        "dark":"Dark",
+        "employees":"Employees",
+        "group-nav":"Navigation",
+        "group-settings":"Setting",
+        "light":"Light",
+        "new-player":"New player",
+        "new-tournament":"New tournament",
+        "overview":"Overview",
+        "players":"Players",
+        "tos":"Organizers",
+        "tournaments":"Tournaments",
+        "profile":"my profile",
+        "account":"account",
+        "logout":"logout"
+    },
+    "msn-error":{
+        "required":"This field is required",
+        "pattern":"Invalid format",
+        "minLength":"Minimum of 3 characters.",
+        "userPassInvalid":"User or password invalid"
+    },
+    "lang": {
+        "selected":"English",
+        "es":"Spanish",
+        "en":"English"
+    },
+    "button":{
+        "login":"login",
+        "create-account":"Sign in",
+        "hide":"hide",
+        "show":"show",
+        "send":"Send",
+        "back":"Back"
+    },
+    "input":{
+        "user":"username or email",
+        "email":"email",
+        "username":"username",
+        "password":"password",
+        "confirm":"confirm password"
+    },
+    "website":{
+        "sign-in":"login/register"
+    },
+    "auth":{
+        "menu":{
+            "login":"login",
+            "create-account":"create account",
+            "forgot-password":"forgot password"
+        },
+        "login":{
+            "subtitle":"need to",
+            "url-create-account":"create an account?",
+            "url-forgot-password":"forgot password?"
+        },
+        "create-account":{
+            "subtitle":"I already have an account",
+            "url-login":"sign in"
+        },
+        "forgot-password":{
+            "description":"sign in"
+        }
+    }
+}

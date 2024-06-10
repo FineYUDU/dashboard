@@ -1,0 +1,23 @@
+<main class="container">
+    <section class="section__banner">
+    </section>
+    <section class="section__components">
+        <div class="section__header">
+            <img 
+                width="40"
+                height="40"
+                alt="company logo"
+                [ngSrc]="'../../assets/theme/'+localStorageService.GetMode+'/logo/logo-avatar.svg'" alt=""
+            >
+            <translate-dropdown/>
+
+        </div>
+
+        <div class="section__body">
+            <breadcrumb/>
+            <router-outlet></router-outlet>
+
+        </div>
+    </section>
+
+</main>

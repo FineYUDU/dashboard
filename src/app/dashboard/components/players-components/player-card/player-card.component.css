@@ -1,0 +1,30 @@
+.card__container {
+    display: flex;
+    gap: var(--spacing-sm);
+    background-color: var(--fd-table-bg);
+    border-radius: var(--radius-minimal);
+    border: var(--border-xs) solid var(--fd-table-border);
+    padding: var(--spacing-sm) var(--spacing-md);
+    height: fit-content;
+    .card__profile {
+        border-radius: var(--radius-minimal);
+        /* TODO:fix border */
+        /* overflow: hidden; */
+    }
+    .card__body {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: var(--spacing-xs);
+        ul li {
+            color: var(--fd-color-quaternary);
+            font-size: var(--font__size--b2);
+            font-weight: 400;
+        }
+    }
+    .card__footer {
+        display: flex;
+        gap: var(--spacing-xs);
+        align-items: flex-start;
+    }
+}

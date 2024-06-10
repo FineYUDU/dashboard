@@ -1,0 +1,30 @@
+* {
+    // 
+    // ?                            Local Styles
+    // 
+    // * -------------------------- Text Styles -----------------------------------------------------   
+    --font--family__primary                                                 :'Work Sans', sans-serif;
+    // * -------------------------- Headlines -----------------------------------
+    --font__size--h1                                                        :4em;
+    --font__size--h2                                                        :3.75em;
+    --font__size--h3                                                        :3em;
+    --font__size--h4                                                        :2.125em;
+    --font__size--h5                                                        :1.5em;
+    --font__size--h6                                                        :1.3125em;
+    // * -------------------------- Body ----------------------------------------   
+    --font__size--b1                                                        :1em;
+    --font__size--b2                                                        :.875em;
+    // * -------------------------- Captions --------------------------------------   
+    --font__size--c1                                                        :.75em;
+    --font__size--c2                                                        :.625em;
+    --font__size--c3                                                        :.5em;
+    //  
+    // ?                            Helpers
+    //  
+    // TODO: Definir tamaños
+    --auth--width                                                           :27.5rem;
+    --navbar--width                                                         :4.6875rem;
+    --sidebar--width                                                        :4.6875rem;
+    // * -------------------------- Transition ----------------------------------------------   
+    --transition-time                                                       :.2s ease-in-out;
+}

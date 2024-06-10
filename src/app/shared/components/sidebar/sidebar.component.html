@@ -1,0 +1,254 @@
+<nav>
+    <div class="nav__container" 
+        [ngClass]="{
+        'open-nav' : !isCollapse,
+        'is-collapse-nav' : isCollapse,
+        }">
+        <div class="block__menu">
+            <section class="nav__header">
+                <img
+                width="35" 
+                height="35" 
+                alt="logo company"
+                (click)="collapseSidebar()"
+                [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/logo/logo-avatar.svg'"
+                >    
+                <img
+                width="70" 
+                height="35" 
+                priority
+                alt="logo company"
+                [ngClass]="{
+                    'opacity-1' : !isCollapse,
+                    'opacity-0' : isCollapse,}"
+                [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/logo/logo-txt.svg'"
+                >    
+
+            </section>
+        
+            <section class="nav__body">
+                
+                <div class="group-menu">
+                    <p class="
+                        group-name
+                        font__size--c1
+                        font__weight--medium
+                        "
+                        [ngClass]="{
+                        'opacity-1' : !isCollapse,
+                        'opacity-0' : isCollapse,}"
+                        > 
+                        {{ 'menu.group-nav' | translate:translateService.GetLang  }}
+                    </p>
+                    <ul>
+                        @for (menu of navigationMenu; track navigationMenu) {
+                            <li>
+                                <a  [routerLink]="menu.router" 
+                                    class="link--menu"
+                                    (click)="collapseAllDropdowns()"
+                                    >
+                                    <div class="grid__link"
+                                        routerLinkActive="active"
+                                        >
+                                        <div class="icon__container">
+                                            <img [alt]="menu.icon"
+                                                width="20"
+                                                height="20"
+                                                [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/icon/navbar/'+menu.icon+'.svg'" 
+                                            >
+                                        </div>
+                                        <p routerLinkActive="font__weight--medium" 
+                                            class="
+                                                font__size--b2
+                                                font__weight--regular
+                                                "
+                                                [ngClass]="{
+                                                'opacity-1' : !isCollapse,
+                                                'opacity-0' : isCollapse,}"
+                                                >
+                                            {{ menu.txt | translate:translateService.GetLang }}
+                                        </p>
+        
+                                    </div>
+                                </a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+
+                <div class="group-menu">
+                    <p class="
+                        group-name
+                        font__size--c1
+                        font__weight--medium
+                        "
+                        [ngClass]="{
+                        'opacity-1' : !isCollapse,
+                        'opacity-0' : isCollapse,}"
+                        > 
+                        {{ 'menu.group-settings' | translate:translateService.GetLang  }}
+                    </p>
+                    <ul>
+                        <!-- translate -->
+                        <li [ngClass]="{'point-events': isCollapse}">
+                            <a class="link--menu">
+                                <div class="grid__link"
+                                    (click)="dropdownTranslate()">
+                                    <div class="icon__container">
+                                        <img alt="translate icon"
+                                            width="17"
+                                            height="17"
+                                            [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/icon/navbar/icon-translate.svg'" 
+                                        >
+                                    </div>
+                                    <p routerLinkActive="font__weight--medium" 
+                                        class="
+                                            font__size--b2
+                                            font__weight--regular
+                                            "
+                                            [ngClass]="{
+                                            'opacity-1' : !isCollapse,
+                                            'opacity-0' : isCollapse,}"
+                                            >
+                                        {{ 'lang.selected' | translate:translateService.GetLang }}
+                                    </p>
+                                </div>
+
+                                <div class="dropdown--container"
+                                    [ngClass]="{
+                                        'dropdown--collapse': isTranslateDropdownCollapse,
+                                        'dropdown--open': !isTranslateDropdownCollapse
+                                    }"
+                                    >
+                                    <ul class="dropdown">
+                                        <li class="li--dropdown" 
+                                            (click)="translateService.toggleLang('es')"
+                                            [ngClass]="{'lang--selected': localStorageService.GetLang === 'es'}">
+                                            <div class="li__line"></div>
+                                            
+                                            <div class="li__item">
+                                                <div class="li__marker"></div>
+                                                
+                                                <p class="
+                                                    font__size--b2
+                                                    font__weight--regular"
+                                                    >
+                                                    {{ 'lang.es' | translate:translateService.GetLang }}
+                                                </p>
+
+                                            </div>
+                                        </li>
+
+                                        <li class="li--dropdown" 
+                                            (click)="translateService.toggleLang('en')"
+                                            [ngClass]="{'lang--selected': localStorageService.GetLang === 'en'}">
+                                            <div class="li__line"></div>
+                                            
+                                            <div class="li__item">
+                                                <div class="li__marker"></div>
+                                                
+                                                <p class="
+                                                    font__size--b2
+                                                    font__weight--regular"
+                                                    >
+                                                    {{ 'lang.en' | translate:translateService.GetLang }}
+                                                </p>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </li>
+
+                        <!-- appearance -->
+                        <li [ngClass]="{'point-events': isCollapse}">
+                            <a class="link--menu">
+                                <div class="grid__link"
+                                    (click)="dropdownAppearance()">
+                                    <div class="icon__container">
+                                        <img alt="translate icon"
+                                            width="17"
+                                            height="17"
+                                            [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/icon/navbar/icon-appearance.svg'" 
+                                        >
+                                    </div>
+                                    <p routerLinkActive="font__weight--medium" 
+                                        class="
+                                            font__size--b2
+                                            font__weight--regular
+                                            "
+                                            [ngClass]="{
+                                            'opacity-1' : !isCollapse,
+                                            'opacity-0' : isCollapse,}"
+                                            >
+                                        {{ 'menu.appearance' | translate:translateService.GetLang }}
+                                    </p>
+                                </div>
+
+                                <div class="dropdown--container"
+                                    [ngClass]="{
+                                        'dropdown--collapse': isAppearanceDropdownCollapse,
+                                        'dropdown--open': !isAppearanceDropdownCollapse
+                                    }"
+                                    >
+                                    <ul class="dropdown">
+                                        <li class="li--dropdown" 
+                                            (click)="themeService.changeMode('light')"
+                                            [ngClass]="{'lang--selected': localStorageService.GetMode === 'light'}">
+                                            <div class="li__line"></div>
+                                            
+                                            <div class="li__item">
+                                                <div class="li__marker"></div>
+                                                
+                                                <p class="
+                                                    font__size--b2
+                                                    font__weight--regular"
+                                                    >
+                                                    {{ 'menu.light' | translate:translateService.GetLang }}
+                                                </p>
+
+                                            </div>
+                                        </li>
+
+                                        <li class="li--dropdown" 
+                                            (click)="themeService.changeMode('dark')"
+                                            [ngClass]="{'lang--selected': localStorageService.GetMode === 'dark'}">
+                                            <div class="li__line"></div>
+                                            
+                                            <div class="li__item">
+                                                <div class="li__marker"></div>
+                                                
+                                                <p class="
+                                                    font__size--b2
+                                                    font__weight--regular"
+                                                    >
+                                                    {{ 'menu.dark' | translate:translateService.GetLang }}
+                                                </p>
+
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+            </section>
+
+        </div>
+    
+        <section class="nav__footer">
+            <p class="
+                font__size--c1
+                font__weight--regular
+                font__color--primary
+                ">
+                {{version}}
+            </p>
+        </section>
+
+    </div>
+
+</nav>

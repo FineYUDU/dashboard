@@ -1,0 +1,69 @@
+<div class="container">
+    <!-- TODO: description here -->
+    <!-- <p class="
+        font__size--b2
+        font__weight--medium
+        font__color--primary
+        ">
+    </p> -->
+
+    <form 
+    [formGroup]="myForm" 
+    autocomplete="off" 
+    (ngSubmit)="onSubmit()"
+    class="form__container"
+        >
+        <input-field
+            [legendName]="'input.email' | translate:translateService.GetLang"
+            [placeholder]="'input.email' | translate:translateService.GetLang"
+            [showIcon]="true"
+            [iconName]="'icon-email'"
+            formControlName="email"
+            [isSubmitted]="formService.isInvalidField( myForm, 'email', isSubmitted ) || isPassUserInvalid"
+            [errorMessage]="formService.errorMessage(myForm,'email') | translate:translateService.GetLang"
+        />
+        <input-field
+            [legendName]="'input.username' | translate:translateService.GetLang"
+            [placeholder]="'input.username' | translate:translateService.GetLang"
+            [showIcon]="true"
+            [iconName]="'icon-user'"
+            formControlName="username"
+            [isSubmitted]="formService.isInvalidField( myForm, 'username', isSubmitted ) || isPassUserInvalid"
+            [errorMessage]="formService.errorMessage(myForm,'username') | translate:translateService.GetLang"
+        />
+        <input-field
+            [legendName]="'input.password' | translate:translateService.GetLang"
+            [placeholder]="'input.password' | translate:translateService.GetLang"
+            [showIcon]="true"
+            [iconName]="'icon-password'"
+            [iconEye]="true"
+            [inputType]="'password'"
+            formControlName="password"
+            [isSubmitted]="formService.isInvalidField( myForm, 'password', isSubmitted ) || isPassUserInvalid"
+            [errorMessage]="formService.errorMessage(myForm,'password') | translate:translateService.GetLang"
+        />
+        <input-field
+            [legendName]="'input.confirm' | translate:translateService.GetLang"
+            [placeholder]="'input.confirm' | translate:translateService.GetLang"
+            [showIcon]="true"
+            [iconName]="'icon-password'"
+            [iconEye]="true"
+            [inputType]="'password'"
+            formControlName="confirmPassword"
+            [isSubmitted]="formService.isInvalidField( myForm, 'confirmPassword', isSubmitted ) || isPassUserInvalid"
+            [errorMessage]="formService.errorMessage(myForm,'confirmPassword') | translate:translateService.GetLang"
+        />
+        <div class="btns--container">
+            <a class="btn btn--outline w--100" routerLink="../login">
+                {{ 'button.back' | translate:translateService.GetLang }}
+            </a>
+
+            <button class="btn w--100" type="submit">
+                {{ 'button.create-account' | translate:translateService.GetLang }}
+            </button>
+
+        </div>
+        
+    </form>
+
+</div>

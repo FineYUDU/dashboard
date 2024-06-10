@@ -1,0 +1,87 @@
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    position: relative;
+}
+.field__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+    .field__header {
+        display: flex;
+        justify-content: space-between;
+        /* LEGEND */
+        .field__legend {
+            cursor: pointer;
+            font-weight:500;
+            color: var(--fd-color-bg-quaternary);
+        }
+        .field__header--icon {
+            display: flex;
+            gap: var(--spacing-xs);
+            align-items: center;
+        }
+    }
+    /* ICON */
+    .field__icon {
+       position: absolute;
+       display: flex;
+       left: var(--spacing-sm);
+       top: 70%;
+       transform: translate(-10%, -50%);
+       cursor: pointer;
+       width: 1.0625rem;
+       height:  1.0625rem;
+   } 
+}
+.input {
+    border:.0625rem solid var(--fd-input-border);
+    color: var(--fd-input-txt);
+    background-color: var(--fd-input-bg);
+    padding: var(--spacing-xs) var(--spacing-sm) var(--spacing-xs) calc(var(--spacing-sm) * 3);
+    border-radius: var(--radius-minimal);
+    font-size: var(--font__size--b2);
+    transition:background-color .2s ease-in-out;
+    /* ! @hover */
+    &:hover {
+        color: var(--fd-input-txt-hover);
+        border:.0625rem solid var(--fd-input-border-hover);
+        background-color: var(--fd-input-bg-hover);
+        transition:background-color .2s ease-in-out;
+    }
+    /* ! @focus-visible */
+    &:focus-visible {
+        border:.0625rem solid var(--fd-input-border-focus);
+        outline:.0625rem solid transparent;
+    }
+
+    
+    /* ! PLACEHOLDER */
+    &::placeholder {
+        font-size: var(--font__size--b2);
+        color:var(--fd-input-placeholder);
+    }
+}
+
+/* ! ERROR ------------------------------------------------> */
+.input--error {
+    border:.0625rem solid var(--fd-input-border-danger);
+}
+/* ! FOCUS VISIBLE */
+.input--error:focus-visible {
+    border:.0625rem solid var(--fd-input-border-danger);
+    box-shadow: .1875rem .1875rem .1875rem rgba(0, 0, 0, 0.1);
+}
+/* ! HOVER */
+.input--error:hover {
+    border:.0625rem solid var(--fd-input-border-danger);
+    box-shadow: .1875rem .1875rem .1875rem rgba(0, 0, 0, 0.1);
+}
+/* ! ERROR MSN ------------------------------> */
+.input--error_msn {
+    position: absolute;
+    bottom: calc(-.7rem - var(--spacing-xs));
+    color: var(--fd-input-txt-danger);
+}

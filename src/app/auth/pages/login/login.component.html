@@ -1,0 +1,56 @@
+<div class="container">
+    <p class="
+        font__size--b2
+        font__weight--medium
+        font__color--primary
+        ">
+        {{ 'auth.login.subtitle' | translate:translateService.GetLang }}
+        <a routerLink="../create-account" class="font__color--link cursor--pointer">
+            {{ 'auth.login.url-create-account' | translate:translateService.GetLang }}
+        </a>
+    </p>
+
+    <form 
+    [formGroup]="myForm" 
+    autocomplete="off" 
+    (ngSubmit)="onSubmit()"
+    class="form__container"
+        >
+        <input-field
+            [legendName]="'input.user' | translate:translateService.GetLang"
+            [placeholder]="'input.user' | translate:translateService.GetLang"
+            [showIcon]="true"
+            [iconName]="'icon-user'"
+            formControlName="user"
+            [isSubmitted]="formService.isInvalidField( myForm, 'user', isSubmitted ) || isPassUserInvalid"
+            [errorMessage]="formService.errorMessage(myForm,'user') | translate:translateService.GetLang"
+        />
+        <input-field
+            [legendName]="'input.password' | translate:translateService.GetLang"
+            [placeholder]="'input.password' | translate:translateService.GetLang"
+            [showIcon]="true"
+            [iconName]="'icon-password'"
+            [iconEye]="true"
+            [inputType]="'password'"
+            formControlName="password"
+            [isSubmitted]="formService.isInvalidField( myForm, 'password', isSubmitted ) || isPassUserInvalid"
+            [errorMessage]="formService.errorMessage(myForm,'password') | translate:translateService.GetLang"
+        />
+        
+        <button class="btn w--100" type="submit">
+            {{ 'button.login' | translate:translateService.GetLang }}
+        </button>
+        
+    </form>
+
+    <a routerLink="../forgot-password"
+        class="
+        font__size--b2
+        font__weight--medium
+        font__color--link
+        cursor--pointer
+        ">
+        {{ 'auth.login.url-forgot-password' | translate:translateService.GetLang }}
+    </a>
+
+</div>

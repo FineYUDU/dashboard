@@ -1,0 +1,44 @@
+.container {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    column-gap: var(--spacing-sm);
+    padding:var(--spacing-sm);
+    min-height: calc(100vh - calc(var(--spacing-sm) * 2));
+    .section__components {
+        width: var(--auth--width);
+        min-height: calc(100vh - calc(var(--spacing-sm) * 4));
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-md);
+        background-color: var(--fd-color-bg-sidebar);
+        border-radius: var(--radius-minimal);
+        padding: var(--spacing-sm) var(--spacing-md);
+        border: var(--border-xs) solid var(--fd-color-border-sidebar);
+        .section__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .section__body {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-xs);
+        }
+    }
+}
+
+/* ? Breakpoint SM */
+@media screen and (max-width:460px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        .section__banner {
+            display: none;
+        }
+        .section__components {
+            width: calc(100% - calc(var(--spacing-md) * 2 ));
+            height: 100vh;
+        }
+    }
+}

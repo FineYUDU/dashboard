@@ -1,0 +1,33 @@
+<nav>
+    <section>
+        <img
+            alt="logo-company" 
+            width="50" 
+            height="50" 
+            [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/logo/logo-avatar.svg'"
+        >
+    </section>
+
+    <section>
+        <ul>
+            <li>
+                <toggle-theme/>
+            </li>
+            <li>
+                <translate-dropdown/>
+            </li>
+            <li>
+                <a class="link--menu"
+                    [routerLink]="['../auth']">
+                    <p class="                        
+                        font__size--b1
+                        font__weight--medium
+                        font__color--primary
+                        ">
+                        {{ 'website.sign-in' | translate:translateService.GetLang }}
+                    </p>
+                </a>
+            </li>
+        </ul>
+    </section>
+</nav>

@@ -1,0 +1,67 @@
+{
+    "menu":{
+        "appearance":"Apariencia",
+        "dark":"Oscuro",
+        "employees":"Empleados",
+        "group-nav":"Navegación",
+        "group-settings":"Configuración",
+        "light":"Claro",
+        "new-player":"Nuevo jugador",
+        "new-tournament":"Nuevo torneo",
+        "overview":"Overview",
+        "players":"Jugadores",
+        "tos":"Organizadores",
+        "tournaments":"Torneos",
+        "profile":"mi perfil",
+        "account":"cuenta",
+        "logout":"cerrar sesión"
+    },
+    "msn-error":{
+        "required":"Este campo es obligatorio",
+        "pattern":"Formato no valido",
+        "minLength":"Mínimo 3 caracteres",
+        "userPassInvalid":"Usuario o contraseña invalido"
+    },
+    "lang": {
+        "selected":"Español",
+        "es":"Español",
+        "en":"Inglés"
+    },
+    "button":{
+        "login":"Iniciar sesión",
+        "create-account":"Registrarse",
+        "hide":"Ocultar",
+        "show":"Mostrar",
+        "send":"Enviar",
+        "back":"Volver"
+    },
+    "input":{
+        "user":"usuario o correo electrónico",
+        "email":"correo electrónico",
+        "password":"contraseña",
+        "username":"nombre de usuario",
+        "confirm":"confirmar contraseña"
+    },
+    "website":{
+        "sign-in":"iniciar sesión / registrarse"
+    },
+    "auth":{
+        "menu":{
+            "login":"iniciar sesión",
+            "create-account":"crear cuenta",
+            "forgot-password":"olvide  mi contraseña"
+        },
+        "login":{
+            "subtitle":"¿necesitas",
+            "url-create-account":"crear una cuenta?",
+            "url-forgot-password":"¿olvidaste tu contraseña?"
+        },
+        "create-account":{
+            "subtitle":"Ya tengo una cuenta",
+            "url-login":"iniciar sesión"
+        },
+        "forgot-password":{
+            "description":"iniciar sesión"
+        }
+    }
+}

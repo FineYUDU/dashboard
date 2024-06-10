@@ -1,0 +1,107 @@
+@import './variables-primitives';
+
+.theme--light {
+    //  
+    //  ?                                   TOKENS 
+    //      
+    // * ---------------------------------- Primary ------------------------------------------
+    --fd-color-primary                                                              :#{$grey-600};
+    --fd-color-secondary                                                            :#{$grey-200};
+    --fd-color-tertiary                                                             :#{$grey-50};
+    --fd-color-quaternary                                                           :#{$grey-500};
+    
+    // * ---------------------------------- Background --------------------------------------
+    --fd-color-bg-primary                                                           :#{$grey-50};
+    --fd-color-bg-secondary                                                         :#{$grey-0};
+    --fd-color-bg-tertiary                                                          :#{$grey-600};
+    --fd-color-bg-quaternary                                                        :#{$grey-500};
+    
+    // * ---------------------------------- Brand ---------------------------------------------
+    --fd-color-brand-primary                                                        :#{$brand-200};
+    --fd-color-brand-secondary                                                      :#{$brand-100};
+    --fd-color-brand-tertiary                                                       :#{$brand-400};
+
+    // * ---------------------------------- Helpers ------------------------------------------
+    --fd-color-main-card                                                            :#{$grey-600};
+    --fd-color-lang-selected-txt                                                    :#{$grey-50};
+
+    // * ---------------------------------- Sidebar Menu --------------------------------------
+    --fd-color-bg-sidebar                                                           :#{$grey-0};
+    --fd-color-group-txt-sidebar                                                    :#{$grey-500};
+    --fd-color-menu-txt-sidebar                                                     :#{$grey-500};
+    --fd-color-border-sidebar                                                       :#{$grey-100};
+    --fd-color-dropdown-txt                                                         :#{$grey-500};
+    --fd-color-dropdown-line                                                        :#{$grey-400};
+    --fd-color-dropdown-bg-selected                                                 :#{$grey-100};
+    --fd-color-dropdown-marker                                                      :#{$grey-600};
+    //          Hover
+    --fd-color-menu-bg-sidebar-hover                                                :#{$grey-50};
+    --fd-color-menu-txt-sidebar-hover                                               :#{$grey-500};
+    //          Active
+    --fd-color-menu-bg-sidebar-active                                               :#{$grey-0};
+    --fd-color-menu-txt-sidebar-active                                              :#{$grey-500};
+    --fd-color-menu-border-sidebar-active                                           :#{$grey-100};
+    // * ---------------------------------- Movile Menu --------------------------------------
+    --fd-color-bg-movile-menu                                                      :#{$grey-0};
+    --fd-color-group-name-txt                                                      :#{$grey-600};
+    --fd-color-item                                                                :#{$grey-500};
+    --fd-color-item-active                                                         :#{$grey-50};
+    --fd-color-item-active-txt                                                     :#{$brand-200};
+    --fd-color-line-hierarchy                                                      :#{$grey-600};
+    //  
+    // ?                                    Buttons Default
+    //  
+    // * ---------------------------------- Button / Default -------------------------------------
+    --fd-btn-bg-color                                                               :#{$brand-300};
+    --fd-btn-color                                                                  :#{$grey-50};
+    // * ---------------------------------- Hover ------------------------------------------------
+    --fd-btn-hover-bg-color                                                         :#{$brand-200};
+    --fd-btn-hover-color                                                            :#{$grey-100};
+    // * ---------------------------------- Active -----------------------------------------------
+    --fd-btn-active-bg-color                                                        :#{$brand-500};
+    --fd-btn-active-color                                                           :#{$grey-0};
+    // * ---------------------------------- Focus -----------------------------------------------
+    --fd-btn-focus-outline                                                          :#{$grey-200};
+    // * ---------------------------------- Button / Outline --------------------------------------------
+    --fd-btn-outline-bg-color                                                       :transparent;
+    --fd-btn-txt-color                                                              :#{$grey-500};
+    --fd-btn-outline-outline-color                                                  :#{$grey-200};
+    // * ---------------------------------- Hover ------------------------------------------------
+    --fd-btn-outline-hover-bg-color                                                 :transparent;
+    --fd-btn-outline-hover-color                                                    :#{$grey-200};
+    --fd-btn-outline-hover-outline-color                                            :#{$grey-200};
+    // * ---------------------------------- Active -----------------------------------------------
+    --fd-btn-outline-active-bg-color                                                :transparent;
+    --fd-btn-outline-active-color                                                   :#{$grey-300};
+    --fd-btn-outline-active-outline-color                                           :#{$grey-300};
+    // * ---------------------------------- Focus ------------------------------------------------
+    --fd-btn-outline-focus-outline                                                  :#{$grey-200};
+    //  
+    // ?                                    Input Default
+    //  
+    // * ---------------------------------- Button / Default -------------------------------------
+    --fd-input-bg                                                                   :#{$grey-50};
+    --fd-input-border                                                               :#{$grey-200};
+    --fd-input-txt                                                                  :#{$grey-600};
+    --fd-input-placeholder                                                          :#{$grey-300};
+    // * ---------------------------------- Hover ------------------------------------------------
+    --fd-input-bg-hover                                                             :#{$grey-50};
+    --fd-input-border-hover                                                         :#{$grey-300};
+    --fd-input-txt-hover                                                            :#{$grey-600};
+    // * ---------------------------------- Focus-visble -----------------------------------------
+    --fd-input-border-focus                                                         :#{$grey-400};
+    // * ---------------------------------- Error ------------------------------------------------
+    --fd-input-border-danger                                                        :#{$danger-100};
+    --fd-input-txt-danger                                                           :#{$danger-200};
+    // * ---------------------------------- Success ------------------------------------------------
+    --fd-input-txt-success                                                          :#{$success-100};
+    //  
+    // ?                                    Table
+    //  
+    --fd-table-bg                                                                   :#{$grey-0};
+    --fd-table-bg-secondary                                                         :#{$grey-50};
+    --fd-table-border                                                               :#{$grey-100};
+    --fd-table-bg-thead                                                             :#{$brand-300};
+    --fd-table-txt-thead                                                            :#{$grey-50};
+    --fd-table-txt                                                                  :#{$grey-500};
+}

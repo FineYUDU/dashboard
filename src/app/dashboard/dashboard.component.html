@@ -1,0 +1,23 @@
+<!-- <server-status/> -->
+<!-- <app-chat/> -->
+<main [ngClass]="{
+    'open': !isCollapse,
+    'collapse': isCollapse
+    }">
+    <section class="section__menu">
+        <sidebar
+        (isCollapseSidebar)="collapseSidebar()"
+        [navigationMenu]="navigationMenu()"
+        />
+    </section>
+
+    <section class="section__components">
+        <div>
+            <navbar-header/>
+        </div>
+        <div>
+            <router-outlet/>
+        </div>
+    </section>
+
+</main>
