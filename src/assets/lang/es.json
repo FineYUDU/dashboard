@@ -1,20 +1,22 @@
 {
     "menu":{
+        "account":"cuenta",
+        "add-class":"Nueva Clase",
+        "add-event":"Nuevo Evento",
+        "add-student":"Nuevo Estudiante",
+        "add-teacher":"Nuevo Maestro",
         "appearance":"Apariencia",
+        "classes":"Clases",
         "dark":"Oscuro",
-        "employees":"Empleados",
+        "events":"Eventos",
         "group-nav":"Navegación",
         "group-settings":"Configuración",
         "light":"Claro",
-        "new-player":"Nuevo jugador",
-        "new-tournament":"Nuevo torneo",
+        "logout":"cerrar sesión",
         "overview":"Overview",
-        "players":"Jugadores",
-        "tos":"Organizadores",
-        "tournaments":"Torneos",
         "profile":"mi perfil",
-        "account":"cuenta",
-        "logout":"cerrar sesión"
+        "students":"Estudiantes",
+        "teachers":"Maestros"
     },
     "msn-error":{
         "required":"Este campo es obligatorio",

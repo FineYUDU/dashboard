@@ -35,19 +35,24 @@ export default class DashboardComponent {
         router:'overview',
       },
       {
-        icon:'icon-players',
-        txt:'menu.players',
-        router:'players',
+        icon:'icon-teachers',
+        txt:'menu.teachers',
+        router:'teachers',
       },
       {
-        icon:'icon-tos',
-        txt:'menu.tos',
-        router:'tos',
+        icon:'icon-students',
+        txt:'menu.students',
+        router:'students',
       },
       {
-        icon:'icon-tournaments',
-        txt:'menu.tournaments',
-        router:'tournaments',
+        icon:'icon-classes',
+        txt:'menu.classes',
+        router:'classes',
+      },
+      {
+        icon:'icon-events',
+        txt:'menu.events',
+        router:'events',
       },
   ])
 

@@ -3,19 +3,6 @@ import { Page404Component } from '@shared/pages/page404/page404.component';
 
 export const routes: Routes = [
     {
-        path:'website',
-        loadComponent: () => import('./website/website.component'),
-        children: [
-            {
-                path:'home',
-                title:'Home',
-                data:{translate:'website.menu.home'},
-                loadComponent: () => import('./website/pages/home/home.component')
-            },
-            { path:'', redirectTo:'home', pathMatch:'full' }
-        ]
-    },
-    {
         path:'auth',
         loadComponent: () => import('./auth/auth.component'),
         children: [
@@ -51,22 +38,52 @@ export const routes: Routes = [
                 loadComponent: () => import('./dashboard/pages/overview/overview.component')
             },
             {
-                path:'tournaments',
-                title:'Tournaments',
-                data:{translate:'menu.tournaments'},
-                loadComponent: () => import('./dashboard/pages/tournaments/tournaments.component')
+                path:'students',
+                title:'Students',
+                data:{translate:'menu.students'},
+                loadComponent: () => import('./dashboard/pages/students/students.component')
             },
             {
-                path:'players',
-                title:'Players',
-                data:{translate:'menu.players'},
-                loadComponent: () => import('./dashboard/pages/players/players.component')
+                path:'add-student',
+                title:'Add Student',
+                data:{translate:'menu.add-student'},
+                loadComponent: () => import('./dashboard/pages/add-student/add-student.component')
             },
             {
-                path:'tos',
-                title:'Tournament Organizer',
-                data:{translate:'menu.tos'},
-                loadComponent: () => import('./dashboard/pages/tos/tos.component')
+                path:'teachers',
+                title:'Teachers',
+                data:{translate:'menu.teachers'},
+                loadComponent: () => import('./dashboard/pages/teachers/teachers.component')
+            },
+            {
+                path:'add-teacher',
+                title:'Add Teacher',
+                data:{translate:'menu.add-teacher'},
+                loadComponent: () => import('./dashboard/pages/add-teacher/add-teacher.component')
+            },
+            {
+                path:'add-class',
+                title:'Add Class',
+                data:{translate:'menu.add-class'},
+                loadComponent: () => import('./dashboard/pages/add-class/add-class.component')
+            },
+            {
+                path:'classes',
+                title:'Classes',
+                data:{translate:'menu.classes'},
+                loadComponent: () => import('./dashboard/pages/classes/classes.component')
+            },
+            {
+                path:'add-event',
+                title:'Add Event',
+                data:{translate:'menu.add-event'},
+                loadComponent: () => import('./dashboard/pages/add-events/add-events.component')
+            },
+            {
+                path:'events',
+                title:'Events',
+                data:{translate:'menu.events'},
+                loadComponent: () => import('./dashboard/pages/events/events.component')
             },
             {
                 path:'profile',
@@ -80,18 +97,6 @@ export const routes: Routes = [
                 data:{translate:'menu.account'},
                 loadComponent: () => import('./dashboard/pages/account/account.component')
             },
-            {
-                path:'new-player',
-                title:'Player',
-                data:{translate:'menu.new-player'},
-                loadComponent: () => import('./dashboard/pages/new-player/new-player.component')
-            },
-            {
-                path:'new-tournament',
-                title:'Tournament',
-                data:{translate:'menu.new-tournament'},
-                loadComponent: () => import('./dashboard/pages/new-tournament/new-tournament.component')
-            },
             { path:'', redirectTo:'overview', pathMatch:'full' }
         ]
     },
@@ -99,6 +104,6 @@ export const routes: Routes = [
         path:'404',
         component:Page404Component
     },
-    { path:'', redirectTo:'/website', pathMatch:'full' },
+    { path:'', redirectTo:'/auth', pathMatch:'full' },
     { path:'**', redirectTo:'/404', pathMatch:'full' }
 ];

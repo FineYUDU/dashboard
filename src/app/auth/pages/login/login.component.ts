@@ -50,10 +50,13 @@ export default class LoginComponent {
       if( form['user'].value == 'test@test.com' && form['password'].value == 'password') {
         // TODO: Esta logica cambiara cuando conecte al backend
           this.router.navigateByUrl('dashboard'); 
+          this.isPassUserInvalid = false;
           console.log('Submit success');
           this.isSubmitted = false;
           this.myForm.reset();
       } else {
+        this.isPassUserInvalid = true
+        console.log(this.isPassUserInvalid);
         console.log('User or password is wrong');
       }
     } else console.log('Error login');

@@ -10,16 +10,16 @@ import { WebsocketService } from '@services/websocket.service';
 import { TranslatePipe } from '@shared/pipes/translate.pipe';
 // @components
 import { BreadcrumbsComponent } from '@shared/components/breadcrumbs/breadcrumb.component';
-import { TranslateDropdownComponent } from '@shared/components/translate-dropdown/translate-dropdown.component';
+import { DropdownTranslateComponent } from '@shared/components/dropdown-translate/dropdown-translate.component';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
   imports: [
     BreadcrumbsComponent,
+    DropdownTranslateComponent,
     NgOptimizedImage,
     RouterModule,
-    TranslateDropdownComponent,
     TranslatePipe,
   ],
   templateUrl: './auth.component.html',

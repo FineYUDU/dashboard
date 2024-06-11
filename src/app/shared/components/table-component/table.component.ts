@@ -22,14 +22,12 @@ export class TableComponent  implements OnInit {
   }
   
   loadPage( page:number ) {
-    
     this.userService.loadPage( page )
     .pipe(
       filter( users => users.length > 0 )
     )
     .subscribe( users => {
       this.currentPage.set( page );
-      // this.users.set( users );
       this.users.update( currentUsers => [ ...currentUsers, ...users ])
 
     })

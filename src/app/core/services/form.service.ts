@@ -31,6 +31,8 @@ export class FormService {
 		if(formControl.getError('required')) return 'msn-error.required';
 
         if (formControl.getError('pattern')) return 'msn-error.pattern';
+
+        return 'msn-error.userPassInvalid';
         
 	}
 

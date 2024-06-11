@@ -1,11 +1,11 @@
 .container {
     display: flex;
     justify-content: space-between;
-    align-self: center;
+    align-items: center;
     height: var(--size-header);
     section {
         display: flex;
-        align-self: center;
+        align-items: center;
         gap: var(--spacing-sm);
     }
 }

@@ -1,0 +1,58 @@
+<div class="container">
+    <p class="
+        font__size--b2
+        font__weight--medium
+        font__color--primary
+        ">
+        Fine 
+        <span class="
+                font__size--b2
+                font__weight--regular
+                font__color--quaternary
+                ">
+                / TLG
+        </span>
+    </p>
+    <div class="user__img" (click)="isDropdownOpen.set(!isDropdownOpen())">
+        <img 
+        [ngSrc]="'../../../../assets/theme/profile-pic.svg'" 
+        width="35"
+        height="35"
+        alt="Add"
+        >
+    </div>
+
+    <div class="dropdown"
+    [ngClass]="{
+        'dropdown-open': isDropdownOpen(),
+        'dropdown-close': !isDropdownOpen(),
+        }">
+        <ul>
+            @for (item of userMenu(); track $index;)  {
+                @if( item.txt !== 'menu.logout' ) {
+                    <li> 
+                        <a  class="menu--item"
+                            (click)="isDropdownOpen.set(false)"
+                            [routerLink]="item.router"
+                            routerLinkActive="active">
+                            <p class="font__size--b2 font__weight--regular">
+                                {{ item.txt | translate:translateService.GetLang }}
+                            </p>
+                        </a>
+                    </li>
+                }
+                @if( item.txt === 'menu.logout' ) {
+                    <li> 
+                        <a  class="menu--item cursor--pointer"
+                            (click)="logout()">
+                            <p class="font__size--b2 font__weight--regular">
+                                {{ item.txt | translate:translateService.GetLang }}
+                            </p>
+                        </a>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+</div>
