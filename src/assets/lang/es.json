@@ -1,6 +1,6 @@
 {
     "menu":{
-        "account":"cuenta",
+        "account":"Cuenta",
         "add-class":"Nueva Clase",
         "add-event":"Nuevo Evento",
         "add-student":"Nuevo Estudiante",
@@ -22,7 +22,9 @@
         "required":"Este campo es obligatorio",
         "pattern":"Formato no valido",
         "minLength":"Mínimo 3 caracteres",
-        "userPassInvalid":"Usuario o contraseña invalido"
+        "userPassInvalid":"Usuario o contraseña invalido",
+        "notEqual":"Las contraseñas deben ser las mismas",
+        "userExist":"Este usuario ya existe"
     },
     "lang": {
         "selected":"Español",
@@ -35,35 +37,41 @@
         "hide":"Ocultar",
         "show":"Mostrar",
         "send":"Enviar",
-        "back":"Volver"
+        "back":"Volver",
+        "continue":"Continuar"
     },
     "input":{
-        "user":"usuario o correo electrónico",
-        "email":"correo electrónico",
-        "password":"contraseña",
-        "username":"nombre de usuario",
-        "confirm":"confirmar contraseña"
+        "user":"Usuario o correo electrónico",
+        "email":"Correo electrónico",
+        "password":"Contraseña",
+        "fullName":"Nombre completo",
+        "confirm":"Confirmar contraseña"
     },
     "website":{
-        "sign-in":"iniciar sesión / registrarse"
+        "sign-in":"Iniciar sesión / registrarse"
     },
     "auth":{
         "menu":{
-            "login":"iniciar sesión",
-            "create-account":"crear cuenta",
-            "forgot-password":"olvide  mi contraseña"
+            "login":"Iniciar sesión",
+            "create-account":"Crear cuenta",
+            "forgot-password":"Olvide  mi contraseña",
+            "success":"¡Usuario creado con exito!"
         },
         "login":{
-            "subtitle":"¿necesitas",
+            "subtitle":"¿Necesitas",
+            "remember":"recordar",
             "url-create-account":"crear una cuenta?",
-            "url-forgot-password":"¿olvidaste tu contraseña?"
+            "url-forgot-password":"¿Olvidaste tu contraseña?"
         },
         "create-account":{
             "subtitle":"Ya tengo una cuenta",
-            "url-login":"iniciar sesión"
+            "url-login":"Iniciar sesión"
         },
         "forgot-password":{
-            "description":"iniciar sesión"
+            "description":"Iniciar sesión"
+        },
+        "success":{
+            "subtitle":"¡Bienvenido!, tu cuenta ha sido dada de alta."
         }
     }
 }

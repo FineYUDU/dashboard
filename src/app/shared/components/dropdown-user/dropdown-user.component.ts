@@ -1,13 +1,15 @@
-// @angular
 import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-// @services
+
 import { LocalStorageService } from '@services/localstorage.service';
 import { TranslateService } from '@services/translate.service';
-// @pipes
+
 import { TranslatePipe } from '@shared/pipes/translate.pipe';
-import { NavMenu } from '@models/index.interfaces';
 import { Router, RouterModule } from '@angular/router';
+import { NavMenu } from '@shared/interfaces/nav.interfaces';
+import { User } from '../../../auth/interfaces';
+import { UserService } from '../../../auth/services/user.service';
+import { MenusService } from '@services/menus.service';
 
 @Component({
   selector: 'dropdown-user',
@@ -22,37 +24,35 @@ import { Router, RouterModule } from '@angular/router';
   styleUrl: './dropdown-user.component.css'
 })
 export class DropdownUserComponent {
-  // @injections
-  public el = inject( ElementRef );
-  public localStorageService = inject( LocalStorageService );
-  public router = inject( Router );
+  private _router = inject( Router );
+  private _el = inject( ElementRef );
+  private _userService = inject( UserService );
+
+  public menusService = inject( MenusService );   
   public translateService = inject( TranslateService ); 
-  // @params
+
   public isDropdownOpen = signal<boolean>(false);
-  public userMenu = signal<NavMenu[]>([
-    {
-      txt:'menu.profile',
-      router:'profile',
-    },
-    {
-      txt:'menu.account',
-      router:'account',
-    },
-    {
-      txt:'menu.logout',
-    },
-    
-  ]);
+  public userProfilePic = signal<string>('../../../../assets/theme/profile-pic.svg');  
+
+
+  get user():User | undefined {
+    return this._userService.currenUser;
+  }
+
   
   @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent) { !this.isClickInsideComponent(event) ? this.isDropdownOpen.set(false) : undefined }
 
   isClickInsideComponent(event: MouseEvent): boolean {
-    const mainContElement = this.el.nativeElement.querySelector('.container');
+    const mainContElement = this._el.nativeElement.querySelector('.container');
     return mainContElement.contains(event.target as Node);
   }
 
   logout() {
-    this.router.navigateByUrl('auth');
+    this._userService.logout()
+    this._router.navigateByUrl('auth');
   }
+
 }
+
+// TODO:Refacrtor

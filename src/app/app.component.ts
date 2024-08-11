@@ -1,10 +1,12 @@
-// @angular
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-// @services
+import { Component, computed, effect, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+
 import { ThemeService } from '@services/theme.service';
 import { TranslateService } from '@services/translate.service';
+import { AuthService } from './auth/services/auth.service';
+import { AuthStatus } from './auth/interfaces';
+import { LocalStorageService } from './core/services/localstorage.service';
 
 @Component({
   selector: 'app-root',
@@ -12,13 +14,47 @@ import { TranslateService } from '@services/translate.service';
   imports: [
     CommonModule, 
     RouterOutlet,
-
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-    // @injections
-    private themeService = inject(ThemeService)
-    private translateService = inject (TranslateService); 
+  
+  private authService = inject( AuthService );
+  private localStorageService = inject( LocalStorageService );
+  private router = inject( Router );
+
+  public finishedAuthCheck = computed<boolean>( () => {
+    console.log(this.authService.authStatus() )
+    if ( this.authService.authStatus() === AuthStatus.checking ) {
+      return false;
+    }
+
+    return true;
+  });
+
+
+  public authStatusChangedEffect = effect(() => {
+
+    switch( this.authService.authStatus() ) {
+
+      case AuthStatus.checking:
+        return;
+
+      case AuthStatus.authenticated:
+        this.router.navigateByUrl('/dashboard');
+        return;
+
+      case AuthStatus.notAuthenticated:
+        this.router.navigateByUrl('/auth/login');
+        return;
+
+    }
+
+
+
+
+  });
+
+
 }

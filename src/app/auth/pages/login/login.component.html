@@ -2,7 +2,7 @@
     <p class="
         font__size--b2
         font__weight--medium
-        font__color--primary
+        font__color--quaternary
         ">
         {{ 'auth.login.subtitle' | translate:translateService.GetLang }}
         <a routerLink="../create-account" class="font__color--link cursor--pointer">
@@ -17,13 +17,13 @@
     class="form__container"
         >
         <input-field
-            [legendName]="'input.user' | translate:translateService.GetLang"
-            [placeholder]="'input.user' | translate:translateService.GetLang"
+            [legendName]="'input.email' | translate:translateService.GetLang"
+            [placeholder]="'input.email' | translate:translateService.GetLang"
             [showIcon]="true"
             [iconName]="'icon-user'"
-            formControlName="user"
-            [isSubmitted]="formService.isInvalidField( myForm, 'user', isSubmitted ) || isPassUserInvalid"
-            [errorMessage]="formService.errorMessage(myForm,'user') | translate:translateService.GetLang"
+            formControlName="email"
+            [isSubmitted]="formService.isInvalidField( myForm, 'email', isSubmitted ) || isPassUserInvalid"
+            [errorMessage]="formService.errorMessage(myForm,'email') | translate:translateService.GetLang"
         />
         <input-field
             [legendName]="'input.password' | translate:translateService.GetLang"
@@ -36,12 +36,40 @@
             [isSubmitted]="formService.isInvalidField( myForm, 'password', isSubmitted ) || isPassUserInvalid"
             [errorMessage]="formService.errorMessage(myForm,'password') | translate:translateService.GetLang"
         />
+        <div class="checkbox__block">
+            <label class="
+                font__size--b2
+                font__weight--medium
+                font__color--quaternary
+                ">
+                <input  id="checkbox-signin"
+                        type="checkbox"
+                        formControlName="remember"
+                >
+                {{'auth.login.remember' | translate:translateService.GetLang}}
+            </label>
+        </div>
         
-        <button class="btn w--100" type="submit">
-            {{ 'button.login' | translate:translateService.GetLang }}
+        <button class="btn w--100" style="height: 37px;" type="submit">
+            @if (showLoader) {
+                <loader></loader>
+            } @else {
+                {{ 'button.login' | translate:translateService.GetLang }}
+            }
         </button>
         
+        @if (isPassUserInvalid) {
+            <span class="
+                font__size--b2
+                font__weight--regular 
+                font__color--danger
+                input--error_msn
+                ">
+                {{'msn-error.userPassInvalid' | translate:translateService.GetLang}}
+            </span>
+        }
     </form>
+
 
     <a routerLink="../forgot-password"
         class="

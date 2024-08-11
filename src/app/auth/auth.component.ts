@@ -1,23 +1,19 @@
-// @angular
 import { Component, inject } from '@angular/core';
-import { LocalStorageService } from '@services/localstorage.service';
 import { NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
+
 import { TranslateService } from '@services/translate.service';
-// @services
-import { WebsocketService } from '@services/websocket.service';
-// @pipes
+
 import { TranslatePipe } from '@shared/pipes/translate.pipe';
-// @components
+
 import { BreadcrumbsComponent } from '@shared/components/breadcrumbs/breadcrumb.component';
-import { DropdownTranslateComponent } from '@shared/components/dropdown-translate/dropdown-translate.component';
+import { ThemeService } from '@services/theme.service';
 
 @Component({
   selector: 'app-auth',
   standalone: true,
   imports: [
     BreadcrumbsComponent,
-    DropdownTranslateComponent,
     NgOptimizedImage,
     RouterModule,
     TranslatePipe,
@@ -26,8 +22,7 @@ import { DropdownTranslateComponent } from '@shared/components/dropdown-translat
   styleUrl: './auth.component.css'
 })
 export default class AuthComponent {
-  // @injections
-  public localStorageService = inject( LocalStorageService);
   public translateService = inject( TranslateService );
+  public themeService = inject(  ThemeService );
 
 }

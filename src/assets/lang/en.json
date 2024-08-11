@@ -1,6 +1,6 @@
 {
     "menu":{
-        "account":"account",
+        "account":"Account",
         "add-class":"New Class",
         "add-event":"New Event",
         "add-student":"New Student",
@@ -12,17 +12,19 @@
         "group-nav":"Navigation",
         "group-settings":"Setting",
         "light":"Light",
-        "logout":"logout",
+        "logout":"Logout",
         "overview":"Overview",
-        "profile":"my profile",
+        "profile":"My profile",
         "students":"Students",
-        "teachers":"Teacherss"
+        "teachers":"Teachers"
     },
     "msn-error":{
         "required":"This field is required",
         "pattern":"Invalid format",
         "minLength":"Minimum of 3 characters.",
-        "userPassInvalid":"User or password invalid"
+        "userPassInvalid":"User or password invalid",
+        "notEqual":"Passwords must be the same",
+        "userExist":"This user already exist"
     },
     "lang": {
         "selected":"English",
@@ -30,40 +32,46 @@
         "en":"English"
     },
     "button":{
-        "login":"login",
+        "login":"Login",
         "create-account":"Sign in",
-        "hide":"hide",
-        "show":"show",
+        "hide":"Hide",
+        "show":"Show",
         "send":"Send",
-        "back":"Back"
+        "back":"Back",
+        "continue":"Continue"
     },
     "input":{
-        "user":"username or email",
-        "email":"email",
-        "username":"username",
-        "password":"password",
-        "confirm":"confirm password"
+        "user":"Username or email",
+        "email":"Email",
+        "fullName":"Full name",
+        "password":"Password",
+        "confirm":"Confirm password"
     },
     "website":{
-        "sign-in":"login/register"
+        "sign-in":"Login/register"
     },
     "auth":{
         "menu":{
-            "login":"login",
-            "create-account":"create account",
-            "forgot-password":"forgot password"
+            "login":"Login",
+            "create-account":"Create account",
+            "forgot-password":"Forgot password",
+            "success":"User created successfully!"
         },
         "login":{
-            "subtitle":"need to",
+            "subtitle":"Need to",
+            "remember":"remember",
             "url-create-account":"create an account?",
-            "url-forgot-password":"forgot password?"
+            "url-forgot-password":"Forgot password?"
         },
         "create-account":{
             "subtitle":"I already have an account",
-            "url-login":"sign in"
+            "url-login":"Sign in"
         },
         "forgot-password":{
-            "description":"sign in"
+            "description":"Sign in"
+        },
+        "success":{
+            "subtitle":"Welcome! Your account has been registered."
         }
     }
 }

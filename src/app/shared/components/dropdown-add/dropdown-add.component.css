@@ -24,6 +24,8 @@
             li {
                 .menu--item {
                     display: flex;
+                    align-items: center;
+                    gap: var(--spacing-xs);
                     white-space: nowrap;
                     padding: var(--spacing-2xs) var(--spacing-xs);
                     border-radius: .25rem;

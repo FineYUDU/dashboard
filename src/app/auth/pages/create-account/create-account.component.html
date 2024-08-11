@@ -1,17 +1,9 @@
 <div class="container">
-    <!-- TODO: description here -->
-    <!-- <p class="
-        font__size--b2
-        font__weight--medium
-        font__color--primary
-        ">
-    </p> -->
-
-    <form 
-    [formGroup]="myForm" 
-    autocomplete="off" 
-    (ngSubmit)="onSubmit()"
-    class="form__container"
+    <form   
+        [formGroup]="myForm" 
+        autocomplete="off" 
+        (ngSubmit)="createUser()"
+        class="form__container"
         >
         <input-field
             [legendName]="'input.email' | translate:translateService.GetLang"
@@ -19,17 +11,17 @@
             [showIcon]="true"
             [iconName]="'icon-email'"
             formControlName="email"
-            [isSubmitted]="formService.isInvalidField( myForm, 'email', isSubmitted ) || isPassUserInvalid"
+            [isSubmitted]="formService.isInvalidField( myForm, 'email', isSubmitted ) || isUserAlreadyExist"
             [errorMessage]="formService.errorMessage(myForm,'email') | translate:translateService.GetLang"
         />
         <input-field
-            [legendName]="'input.username' | translate:translateService.GetLang"
-            [placeholder]="'input.username' | translate:translateService.GetLang"
+            [legendName]="'input.fullName' | translate:translateService.GetLang"
+            [placeholder]="'input.fullName' | translate:translateService.GetLang"
             [showIcon]="true"
             [iconName]="'icon-user'"
-            formControlName="username"
-            [isSubmitted]="formService.isInvalidField( myForm, 'username', isSubmitted ) || isPassUserInvalid"
-            [errorMessage]="formService.errorMessage(myForm,'username') | translate:translateService.GetLang"
+            formControlName="fullName"
+            [isSubmitted]="formService.isInvalidField( myForm, 'fullName', isSubmitted )"
+            [errorMessage]="formService.errorMessage(myForm,'fullName') | translate:translateService.GetLang"
         />
         <input-field
             [legendName]="'input.password' | translate:translateService.GetLang"
@@ -39,7 +31,7 @@
             [iconEye]="true"
             [inputType]="'password'"
             formControlName="password"
-            [isSubmitted]="formService.isInvalidField( myForm, 'password', isSubmitted ) || isPassUserInvalid"
+            [isSubmitted]="formService.isInvalidField( myForm, 'password', isSubmitted )"
             [errorMessage]="formService.errorMessage(myForm,'password') | translate:translateService.GetLang"
         />
         <input-field
@@ -50,8 +42,8 @@
             [iconEye]="true"
             [inputType]="'password'"
             formControlName="confirmPassword"
-            [isSubmitted]="formService.isInvalidField( myForm, 'confirmPassword', isSubmitted ) || isPassUserInvalid"
-            [errorMessage]="formService.errorMessage(myForm,'confirmPassword') | translate:translateService.GetLang"
+            [isSubmitted]="formService.isInvalidField( myForm, 'confirmPassword', isSubmitted )"
+            [errorMessage]="formService.equalFieldsMessage() | translate:translateService.GetLang"
         />
         <div class="btns--container">
             <a class="btn btn--outline w--100" routerLink="../login">
@@ -59,11 +51,27 @@
             </a>
 
             <button class="btn w--100" type="submit">
-                {{ 'button.create-account' | translate:translateService.GetLang }}
+                @if (showLoader) {
+                    <loader></loader>
+                } @else {
+                    {{ 'button.create-account' | translate:translateService.GetLang }}
+                }
             </button>
 
         </div>
+               
+        @if (isUserAlreadyExist) {
+            <span class="
+                font__size--b2
+                font__weight--regular 
+                font__color--danger
+                input--error_msn
+                ">
+                {{'msn-error.userExist' | translate:translateService.GetLang}}
+            </span>
+        }
         
     </form>
+    
 
 </div>

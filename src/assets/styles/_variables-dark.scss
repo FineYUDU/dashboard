@@ -1,9 +1,6 @@
 @import './variables-primitives';
 
 .theme--dark {
-    //  
-    //  ?                                   TOKENS 
-    //      
     // * ---------------------------------- Primary --------------------------------------------
     --fd-color-primary                                                             :#{$grey-50};
     --fd-color-secondary                                                           :#{$grey-400};
@@ -76,6 +73,20 @@
     --fd-btn-outline-active-outline-color                                           :#{$grey-300};
     // * ---------------------------------- Focus ------------------------------------------------
     --fd-btn-outline-focus-outline                                                  :#{$grey-200};
+    // * ---------------------------------- Button / Success --------------------------------------------
+    --fd-btn-success-bg-color                                                       :#{$success-100};
+    --fd-btn-success-txt-color                                                      :#{$grey-0};
+    --fd-btn-success-outline-color                                                  :transparent;
+    // * ---------------------------------- Hover ------------------------------------------------
+    --fd-btn-success-hover-bg-color                                                 :#{$success-200};
+    --fd-btn-success-hover-color                                                    :#{$grey-50};
+    --fd-btn-success-hover-outline-color                                            :transparent;
+    // * ---------------------------------- Active -----------------------------------------------
+    --fd-btn-success-active-bg-color                                                :#{$success-300};
+    --fd-btn-success-active-color                                                   :#{$grey-100};
+    --fd-btn-success-active-outline-color                                           :transparent;
+    // * ---------------------------------- Focus ------------------------------------------------
+    --fd-btn-success-focus-outline                                                  :#{$success-300};
     //  
     // ?                                    Input Default
     //  
@@ -95,4 +106,13 @@
     --fd-input-txt-danger                                                           :#{$danger-300};
     // * ---------------------------------- Success ------------------------------------------------
     --fd-input-txt-success                                                          :#{$success-100};
+    //
+    // ?                                    Table
+    //  
+    --fd-table-bg                                                                   :#{$grey-0};
+    --fd-table-bg-secondary                                                         :#{$grey-50};
+    --fd-table-border                                                               :#{$grey-100};
+    --fd-table-bg-thead                                                             :#{$brand-300};
+    --fd-table-txt-thead                                                            :#{$grey-50};
+    --fd-table-txt                                                                  :#{$grey-500};
 }

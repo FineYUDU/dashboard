@@ -1,20 +1,24 @@
-// @angular
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-// @services
+
+import { asyncScheduler } from 'rxjs';
+
+import { TranslatePipe } from '@shared/pipes/translate.pipe';
+
+import { AuthService } from '../../services/auth.service';
 import { FormService } from '@services/form.service';
 import { LocalStorageService } from '@services/localstorage.service';
 import { TranslateService } from '@services/translate.service';
-// @pipes
-import { TranslatePipe } from '@shared/pipes/translate.pipe';
-// @components
+
 import { InputFieldComponent } from '@shared/components/input-field/input-field.component';
+import { LoaderComponent } from '@shared/components/loader/loader.component';
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
     InputFieldComponent,
+    LoaderComponent,
     ReactiveFormsModule,
     RouterModule,
     TranslatePipe,
@@ -23,43 +27,90 @@ import { InputFieldComponent } from '@shared/components/input-field/input-field.
   styleUrl: './login.component.css'
 })
 export default class LoginComponent {
-  // @injections
-  public fb = inject( FormBuilder );
+  
+  private _authService = inject( AuthService );
+  private _fb = inject( FormBuilder );
+  
   public formService = inject( FormService );
   public localStorageService = inject( LocalStorageService);
   public router = inject( Router );
   public translateService = inject( TranslateService );
-  // @params
+  
   isCompleted:boolean = false;
   isDisabled:boolean  = false;
   isPassUserInvalid:boolean = false;
   isSubmitted:boolean = false;
   showLoader:boolean  = false;
-
-  public myForm:FormGroup = this.fb.group({
-    user      : ['', [Validators.required]],
-    password  : ['', [Validators.required]],
+  
+  public myForm:FormGroup = this._fb.group({
+    email     : [ localStorage.getItem('email') || 'fine_567@hotmail.com', [Validators.required]],
+    password  : ['Password123', [Validators.required]],
+    remember   : [false]
   });
 
   onSubmit(){
-    const form = this.myForm.controls; 
-    this.isSubmitted = true
+    
+    const { email, password } = this.myForm.value;
 
-    if(this.myForm.valid) {
-      console.log('Form Valid');
-      if( form['user'].value == 'test@test.com' && form['password'].value == 'password') {
-        // TODO: Esta logica cambiara cuando conecte al backend
-          this.router.navigateByUrl('dashboard'); 
-          this.isPassUserInvalid = false;
-          console.log('Submit success');
-          this.isSubmitted = false;
-          this.myForm.reset();
-      } else {
-        this.isPassUserInvalid = true
-        console.log(this.isPassUserInvalid);
-        console.log('User or password is wrong');
-      }
-    } else console.log('Error login');
+    this._authService.login( email, password )
+    .subscribe({
+      next: (success) => {
+        console.log(success, "AuthResponse");
+
+        if( this.myForm.get('remember')?.value ) 
+          localStorage.setItem('email', this.myForm.get('email')?.value)
+        else 
+          localStorage.removeItem('email');
+  
+        this.router.navigateByUrl('dashboard'); 
+
+      },
+      error: (error)=> console.log({loginError: error}),
+    })
+
   }
 
+
+  // onSubmit(){
+
+  //   this.showLoader = true;
+  //   this.isPassUserInvalid = false;
+    
+  //   const submit = () => {
+      
+  //     this.showLoader = false;
+  //     this.isSubmitted = true;
+
+  //     if(this.myForm.invalid) return;
+      
+  //     const { email, password } = this.myForm.value;
+  
+  //     const userData = { email, password }; 
+  
+  //     this._authService.login(userData)
+  //     .subscribe( success => {
+
+  //       console.log(success, "AuthResponse");
+  
+  //       if( this.myForm.get('remember')?.value ) 
+  //         localStorage.setItem('email', this.myForm.get('email')?.value)
+  //       else 
+  //         localStorage.removeItem('email');
+  
+  //       this.router.navigateByUrl('dashboard'); 
+  //     }, (err) => {
+  //       this.isPassUserInvalid = true;
+  //     });
+  //   };
+  //   asyncScheduler.schedule( submit, 1000 );
+
+  // }
 }
+
+/**
+ TODO: 
+  1. redesign checkbox
+  2. change error messages when email or pass is invalid, i don´t like it
+  3. implements loading
+ * 
+*/

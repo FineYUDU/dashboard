@@ -82,6 +82,5 @@
 /* ! ERROR MSN ------------------------------> */
 .input--error_msn {
     position: absolute;
-    bottom: calc(-.7rem - var(--spacing-xs));
-    color: var(--fd-input-txt-danger);
+    bottom: calc(-1rem - var(--spacing-xs));
 }

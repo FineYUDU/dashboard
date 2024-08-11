@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { Page404Component } from '@shared/pages/page404/page404.component';
+import { isAuthenticatedGuard } from './auth/guard/is-authenticated.guard';
 
 export const routes: Routes = [
     {
@@ -24,11 +25,18 @@ export const routes: Routes = [
                 data:{translate:'auth.menu.create-account'},
                 loadComponent: ()=> import('./auth/pages/create-account/create-account.component'),
             },
-            { path:'', redirectTo:'login', pathMatch:'full' }
+            {
+                path:'success',
+                title:'Success',
+                data:{translate:'auth.menu.success'},
+                loadComponent: ()=> import('./auth/pages/success/success.component'),
+            },
+            { path:'', redirectTo:'login', pathMatch:'full' },
         ]
     },
     {
         path:'dashboard',
+        canActivate:[ isAuthenticatedGuard ],
         loadComponent: () => import('./dashboard/dashboard.component'),
         children: [
             {
@@ -97,7 +105,7 @@ export const routes: Routes = [
                 data:{translate:'menu.account'},
                 loadComponent: () => import('./dashboard/pages/account/account.component')
             },
-            { path:'', redirectTo:'overview', pathMatch:'full' }
+            { path:'', redirectTo:'teachers', pathMatch:'full' }
         ]
     },
     {

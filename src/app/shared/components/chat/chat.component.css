@@ -1,9 +1,0 @@
-#chat--messages {
-    height: 18.75rem;
-    border: var(--border-xs) solid red;
-    border-radius: var(--radius-minimal);
-    overflow-y: scroll;
-}
-.input--chat {
-    margin-top: .625rem;
-}

@@ -1,14 +1,14 @@
-// @angular
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
-// @services
-import { LocalStorageService } from '@services/localstorage.service';
-import { TranslateService } from '@services/translate.service';
-// @pipes
+
 import { TranslatePipe } from '@shared/pipes/translate.pipe';
-// @models
-import { NavMenu } from '@models/index.interfaces';
+
+import { MenusService } from '@services/menus.service';
+import { ThemeService } from '@services/theme.service';
+import { TranslateService } from '@services/translate.service';
+
+
 
 @Component({
   selector: 'dropdown-add',
@@ -23,39 +23,23 @@ import { NavMenu } from '@models/index.interfaces';
   styleUrl: './dropdown-add.component.css'
 })
 export class DropdownAddComponent {
-  // @injections
-  public localStorageService = inject( LocalStorageService);
+
   public translateService = inject( TranslateService );   
-  public el = inject( ElementRef );
-  // @params
+  public themeService = inject( ThemeService );   
+  public menusService = inject( MenusService );   
+
+  private _el = inject( ElementRef );
+  
   isDropdownOpen = signal(false);
-  addMenu = signal<NavMenu[]>([
-    {
-      txt:'menu.add-teacher',
-      router:'add-teacher',
-    },
-    {
-      txt:'menu.add-student',
-      router:'add-student',
-    },
-    {
-      txt:'menu.add-event',
-      router:'add-event',
-    },
-    {
-      txt:'menu.add-class',
-      router:'add-class',
-    },
-    
-  ])
   
   @HostListener('document:click', ['$event'])
   onClick(event: MouseEvent) { !this.isClickInsideComponent(event) ? this.isDropdownOpen.set(false) : undefined }
 
   isClickInsideComponent(event: MouseEvent): boolean {
-    const mainContElement = this.el.nativeElement.querySelector('.container');
+    const mainContElement = this._el.nativeElement.querySelector('.container');
     return mainContElement.contains(event.target as Node);
   }
   
-    
 }
+
+// TODO: Remove HostListener

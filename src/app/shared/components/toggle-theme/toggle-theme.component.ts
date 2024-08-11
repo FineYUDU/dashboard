@@ -1,7 +1,6 @@
-// @angular
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { LocalStorageService } from '@services/localstorage.service';
+
 import { ThemeService } from '@services/theme.service';
 
 @Component({
@@ -15,7 +14,5 @@ import { ThemeService } from '@services/theme.service';
   styleUrl: './toggle-theme.component.css'
 })
 export class ToggleThemeComponent {
-  // @injections
   public themeService = inject( ThemeService );
-  public localStorageService = inject( LocalStorageService );
 }

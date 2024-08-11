@@ -1,15 +1,16 @@
-// @agular
 import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterModule } from '@angular/router';
-// @service
-import { LocalStorageService } from '@services/localstorage.service';
-import { TranslateService } from '@services/translate.service';
-// @pipe
-import { TranslatePipe } from '@shared/pipes/translate.pipe';
-import { ThemeService } from '@services/theme.service';
-import { NavMenu } from '@models/index.interfaces';
+
 import { enviroment } from '../../../../enviroments/enviroment';
+
+import { TranslatePipe } from '@shared/pipes/translate.pipe';
+
+import { TranslateService } from '@services/translate.service';
+import { ThemeService } from '@services/theme.service';
+
+import { NavMenu } from '@shared/interfaces/nav.interfaces';
+
 @Component({
   selector: 'sidebar',
   standalone: true,
@@ -23,13 +24,12 @@ import { enviroment } from '../../../../enviroments/enviroment';
   styleUrl: './sidebar.component.css'
 })
 export class SidebarComponent {
-  // @injections
-  public localStorageService = inject( LocalStorageService );
-  public translateService = inject( TranslateService );
-  public themeService = inject( ThemeService );
-  // @params
   @Output() isCollapseSidebar: EventEmitter<void> = new EventEmitter<void>();
   @Input() navigationMenu:NavMenu[] = [];
+  
+  public themeService = inject( ThemeService );
+  public translateService = inject( TranslateService );
+  
   isCollapse:boolean = true;
   isTranslateDropdownCollapse:boolean = true;
   isAppearanceDropdownCollapse:boolean = true;

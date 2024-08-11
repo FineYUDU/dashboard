@@ -1,11 +1,10 @@
-// @angular
 import { ActivationEnd, Router } from '@angular/router';
 import { Component, Input, inject } from '@angular/core';
-// @service
+
 import { TranslateService } from '../../../core/services/translate.service';
-// @pipe
+
 import { TranslatePipe } from '@shared/pipes/translate.pipe';
-// @rxjs
+
 import { filter, map } from 'rxjs';
 
 @Component({
@@ -26,10 +25,10 @@ import { filter, map } from 'rxjs';
 })
 export class BreadcrumbsComponent {
   @Input() DelayDefer:boolean = false;
-  // @injections
+  
   private router = inject( Router );
   public translateService = inject( TranslateService );
-  // @params
+  
   public title: any;
 
   constructor() { this.getRouteData() }

@@ -7,7 +7,7 @@ import { enviroment } from '../enviroments/enviroment';
 import { HttpClientModule } from '@angular/common/http';
 
 const config: SocketIoConfig = {
-  url: enviroment.wsUrl, options: {}
+  url: enviroment.base_url, options: {}
 }
 
 export const appConfig: ApplicationConfig = {

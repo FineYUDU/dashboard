@@ -1,16 +1,26 @@
-// * Angular
 import { Injectable } from '@angular/core';
 @Injectable({providedIn: 'root'})
 export class LocalStorageService {
-    constructor() {}
+    constructor() {
+        let lang;
+        let theme;
+        
+        lang =  localStorage.getItem('lang') || 'es';    
+        
+        const currentLang = localStorage.getItem('lang');
+    
+        if(!currentLang) {
+            localStorage.setItem('lang','es');
+        }
+        
+        theme = localStorage.getItem('theme') || 'dark';
+        document.body.classList.toggle('theme--dark',theme === 'dark');
+        document.body.classList.toggle('theme--light',theme === 'light');    
 
-    get GetMode():string | null {
-        let mode = localStorage.getItem('theme');
-        return mode;
-    }
+        const currentTheme = localStorage.getItem('theme');
 
-    get GetLang():string | null {
-        let lang = localStorage.getItem('lang');
-        return lang;
+        if(!currentTheme) {
+          localStorage.setItem('theme', 'dark');
+        }
     }
 }

@@ -1,14 +1,13 @@
-// @angular
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
-// @services
+
+import { TranslatePipe } from '@shared/pipes/translate.pipe';
+
 import { FormService } from '@services/form.service';
 import { LocalStorageService } from '@services/localstorage.service';
 import { TranslateService } from '@services/translate.service';
-// @pipes
-import { TranslatePipe } from '@shared/pipes/translate.pipe';
-// @components
+
 import { InputFieldComponent } from '@shared/components/input-field/input-field.component';
 
 @Component({
@@ -24,24 +23,25 @@ import { InputFieldComponent } from '@shared/components/input-field/input-field.
   styleUrl: './forgot-password.component.css'
 })
 export default class ForgotPasswordComponent {
- // @injections
- public fb = inject( FormBuilder );
+
+ private _fb = inject( FormBuilder );
+
  public formService = inject( FormService );
  public localStorageService = inject( LocalStorageService);
  public router = inject( Router );
  public translateService = inject( TranslateService );
- // @params
+
  isCompleted:boolean = false;
  isDisabled:boolean  = false;
  isPassUserInvalid:boolean = false;
  isSubmitted:boolean = false;
  showLoader:boolean  = false;
 
- public myForm:FormGroup = this.fb.group({
+ public myForm:FormGroup = this._fb.group({
    user      : ['', [Validators.required]],
  });
 
- onSubmit(){
+ forgotPassword(){
    const form = this.myForm.controls; 
    this.isSubmitted = true
 

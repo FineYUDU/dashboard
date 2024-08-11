@@ -1,14 +1,14 @@
-// @angular
-import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
-// @services
-import { LocalStorageService } from '@services/localstorage.service';
-import { TranslateService } from '@services/translate.service';
-// @pipes
-import { TranslatePipe } from '@shared/pipes/translate.pipe';
-// @models
-import { NavMenu } from '@models/index.interfaces';
+import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { RouterModule } from '@angular/router';
+
+import { TranslatePipe } from '@shared/pipes/translate.pipe';
+
+import { ThemeService } from '@services/theme.service';
+import { TranslateService } from '@services/translate.service';
+
+import { NavMenu } from '@shared/interfaces/nav.interfaces';
+
 
 @Component({
   selector: 'dropdown-notifications',
@@ -23,11 +23,10 @@ import { RouterModule } from '@angular/router';
   styleUrl: './dropdown-notifications.component.css'
 })
 export class DropdownNotificationsComponent {
-  // @injections
-  public localStorageService = inject( LocalStorageService);
+  public themeService = inject( ThemeService);
   public translateService = inject( TranslateService ); 
-  public el = inject( ElementRef );
-  // @params
+  private _el = inject( ElementRef );
+  
   isDropdownOpen = signal(false);
   addMenu = signal<NavMenu[]>([])
   
@@ -35,7 +34,7 @@ export class DropdownNotificationsComponent {
   onClick(event: MouseEvent) { !this.isClickInsideComponent(event) ? this.isDropdownOpen.set(false) : undefined }
 
   isClickInsideComponent(event: MouseEvent): boolean {
-    const mainContElement = this.el.nativeElement.querySelector('.container');
+    const mainContElement = this._el.nativeElement.querySelector('.container');
     return mainContElement.contains(event.target as Node);
   }
   

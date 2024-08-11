@@ -1,1 +1,8 @@
-<router-outlet></router-outlet>
+@if (!finishedAuthCheck()) {
+    Loading...
+}
+
+@if (finishedAuthCheck()) {
+    Hola
+}
+<router-outlet/>

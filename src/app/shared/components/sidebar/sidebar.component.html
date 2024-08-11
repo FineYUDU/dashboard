@@ -11,7 +11,8 @@
                 height="35" 
                 alt="logo company"
                 (click)="collapseSidebar()"
-                [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/logo/logo-avatar.svg'"
+                [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/logo/logo-avatar.svg'"
+                class="cursor--pointer"
                 >    
                 <img
                 width="70" 
@@ -21,7 +22,7 @@
                 [ngClass]="{
                     'opacity-1' : !isCollapse,
                     'opacity-0' : isCollapse,}"
-                [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/logo/logo-txt.svg'"
+                [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/logo/logo-txt.svg'"
                 >    
 
             </section>
@@ -54,7 +55,7 @@
                                             <img [alt]="menu.icon"
                                                 width="20"
                                                 height="20"
-                                                [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/icon/navbar/'+menu.icon+'.svg'" 
+                                                [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/icon/navbar/'+menu.icon+'.svg'" 
                                             >
                                         </div>
                                         <p routerLinkActive="font__weight--medium" 
@@ -98,7 +99,7 @@
                                         <img alt="translate icon"
                                             width="17"
                                             height="17"
-                                            [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/icon/navbar/icon-translate.svg'" 
+                                            [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/icon/navbar/icon-translate.svg'" 
                                         >
                                     </div>
                                     <p routerLinkActive="font__weight--medium" 
@@ -123,7 +124,7 @@
                                     <ul class="dropdown">
                                         <li class="li--dropdown" 
                                             (click)="translateService.toggleLang('es')"
-                                            [ngClass]="{'lang--selected': localStorageService.GetLang === 'es'}">
+                                            [ngClass]="{'lang--selected': translateService.GetLang === 'es'}">
                                             <div class="li__line"></div>
                                             
                                             <div class="li__item">
@@ -141,7 +142,7 @@
 
                                         <li class="li--dropdown" 
                                             (click)="translateService.toggleLang('en')"
-                                            [ngClass]="{'lang--selected': localStorageService.GetLang === 'en'}">
+                                            [ngClass]="{'lang--selected': translateService.GetLang === 'en'}">
                                             <div class="li__line"></div>
                                             
                                             <div class="li__item">
@@ -170,7 +171,7 @@
                                         <img alt="translate icon"
                                             width="17"
                                             height="17"
-                                            [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/icon/navbar/icon-appearance.svg'" 
+                                            [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/icon/navbar/icon-appearance.svg'" 
                                         >
                                     </div>
                                     <p routerLinkActive="font__weight--medium" 
@@ -194,8 +195,8 @@
                                     >
                                     <ul class="dropdown">
                                         <li class="li--dropdown" 
-                                            (click)="themeService.changeMode('light')"
-                                            [ngClass]="{'lang--selected': localStorageService.GetMode === 'light'}">
+                                            (click)="themeService.changeTheme('light')"
+                                            [ngClass]="{'lang--selected': themeService.GetMode === 'light'}">
                                             <div class="li__line"></div>
                                             
                                             <div class="li__item">
@@ -212,8 +213,8 @@
                                         </li>
 
                                         <li class="li--dropdown" 
-                                            (click)="themeService.changeMode('dark')"
-                                            [ngClass]="{'lang--selected': localStorageService.GetMode === 'dark'}">
+                                            (click)="themeService.changeTheme('dark')"
+                                            [ngClass]="{'lang--selected': themeService.GetMode === 'dark'}">
                                             <div class="li__line"></div>
                                             
                                             <div class="li__item">

@@ -4,18 +4,18 @@
         font__weight--medium
         font__color--primary
         ">
-        Fine 
+        {{ user?.fullName }} 
         <span class="
                 font__size--b2
                 font__weight--regular
                 font__color--quaternary
                 ">
-                / TLG
+                / {{ user?.roles }}
         </span>
     </p>
     <div class="user__img" (click)="isDropdownOpen.set(!isDropdownOpen())">
         <img 
-        [ngSrc]="'../../../../assets/theme/profile-pic.svg'" 
+        [ngSrc]=" userProfilePic() " 
         width="35"
         height="35"
         alt="Add"
@@ -28,7 +28,7 @@
         'dropdown-close': !isDropdownOpen(),
         }">
         <ul>
-            @for (item of userMenu(); track $index;)  {
+            @for (item of menusService.userMenu(); track $index;)  {
                 @if( item.txt !== 'menu.logout' ) {
                     <li> 
                         <a  class="menu--item"

@@ -1,6 +1,6 @@
 <div class="container" (click)="isDropdownOpen.set(!isDropdownOpen())">
     <img 
-    [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/icon/header/icon-add.svg'" 
+    [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/icon/header/icon-add.svg'" 
     width="17"
     height="17"
     alt="Add"
@@ -13,11 +13,16 @@
         'dropdown-close': !isDropdownOpen(),
         }">
         <ul>
-            @for (item of addMenu(); track $index) {
+            @for (item of menusService.addMenu(); track $index) {
                 <li> 
                     <a  [routerLink]="item.router"
                         class="menu--item"
                         routerLinkActive="active" >
+                        <img [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/icon/navbar/icon-'+item.icon+'.svg'" 
+                            alt=""
+                            width="17"
+                            height="17"
+                        >
                         <p class="font__size--b2 font__weight--regular">
                             {{ item.txt | translate:translateService.GetLang }}
                         </p>

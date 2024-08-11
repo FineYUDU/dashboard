@@ -1,29 +1,12 @@
-// * Angular
 import { Pipe, PipeTransform } from '@angular/core';
-import { TranslateService } from '../../core/services/translate.service';
-/* 
-note: 
-    instal npm install typings -g --save-dev
-    npm install @types/node --save-dev
-    in tsconfig.app.json add the next line in "compilerOptions"
-    "compilerOptions":{
-        "types": [ "node" ],
-    }
-  },
-*/
-
 @Pipe({
     name: 'translate',
     standalone:true
 })
 
 export class TranslatePipe implements PipeTransform {
-
-
-  constructor( private translateService : TranslateService ) {}
-
-    
-  transform(translateKey: string, lang: string): string {
+  
+  transform(translateKey: string | undefined, lang: string): string {
 
     if (!translateKey) {
       // Return a default value or handle the error gracefully

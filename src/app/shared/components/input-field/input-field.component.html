@@ -17,7 +17,7 @@
                         width="17"
                         height="17"
                         [alt]="inputType"
-                        [ngSrc]="'../../../../assets/theme/'+localStorageService.GetMode+'/icon/icon-type-'+inputType+'.svg'"
+                        [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/icon/icon-type-'+inputType+'.svg'"
                     >
                     <!-- TXT -->
                     @if(inputType === 'text') {
@@ -55,7 +55,7 @@
                 width="17" 
                 height="17"
                 [alt]="iconName"
-                [ngSrc]="'../../../../assets/theme/'+ localStorageService.GetMode +'/icon/'+iconName+'.svg'"
+                [ngSrc]="'../../../../assets/theme/'+ themeService.GetMode +'/icon/'+iconName+'.svg'"
             >
         }
 
@@ -63,8 +63,9 @@
     <!-- ! ERROR MSN -->
     @if ( isSubmitted ) {
         <span class="
-                font__size--c1 
+                font__size--b2
                 font__weight--regular 
+                font__color--danger
                 input--error_msn
             "> 
             {{errorMessage}} 

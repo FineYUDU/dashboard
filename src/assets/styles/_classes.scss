@@ -49,6 +49,9 @@
     .font__color--link {
         color: var(--fd-color-brand-primary);
     }
+    .font__color--danger {
+        color: var(--fd-input-txt-danger);
+    }
     //                                       
     // ?                                    Classes 
     //
@@ -210,6 +213,24 @@
             }
             &:focus-visible {
                 outline:var(--border-lg) solid var(--fd-btn-outline-focus-outline);
+            }
+        }
+        &.btn--success {
+            background-color: var(--fd-btn-success-bg-color);
+            color: var(--fd-btn-success-txt-color);    
+            outline:var(--border-xs) solid var(--fd-btn-success-outline-color);
+            &:hover {
+                background-color: var(--fd-btn-success-hover-bg-color);
+                color: var(--fd-btn-success-hover-color);
+                outline:var(--border-xs) solid var(--fd-btn-success-hover-outline-color);
+            }
+            &:active {
+                background-color: var(--fd-btn-success-active-bg-color);
+                color: var(--fd-btn-success-active-color);
+                outline:var(--border-xs) solid var(--fd-btn-success-active-outline-color);
+            }
+            &:focus-visible {
+                outline:var(--border-lg) solid var(--fd-btn-success-focus-outline);
             }
         }
     }
