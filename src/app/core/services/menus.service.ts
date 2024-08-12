@@ -1,11 +1,39 @@
 import { Injectable, signal } from '@angular/core';
 
 import { NavMenu } from '@shared/interfaces/nav.interfaces';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MenusService {
+
+  public isCollapse = signal<boolean>(true);
+  public isTranslateDropdownCollapse = signal<boolean>(true);
+  public isAppearanceDropdownCollapse = signal<boolean>(true);
+
+
+  collapseSidebar():void {
+    this.isTranslateDropdownCollapse.set(true);
+    this.isAppearanceDropdownCollapse.set(true);
+    this.isCollapse.set(!this.isCollapse());
+  }
+  
+  dropdownTranslate():void {
+    this.isTranslateDropdownCollapse.set(!this.isTranslateDropdownCollapse());
+    this.isAppearanceDropdownCollapse.set(true);
+  }
+
+  dropdownAppearance():void {
+    this.isAppearanceDropdownCollapse.set(!this.isAppearanceDropdownCollapse());
+    this.isTranslateDropdownCollapse.set(true);
+  }
+
+  collapseAllDropdowns():void {
+    this.isAppearanceDropdownCollapse.set(true);
+    this.isTranslateDropdownCollapse.set(true);
+  }
+
   
   public navigationMenu = signal<NavMenu[]>([
     {
@@ -74,6 +102,5 @@ export class MenusService {
     },
     
   ]);
-
 
 }

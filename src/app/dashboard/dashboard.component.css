@@ -6,7 +6,7 @@ main {
         transition: all .5s ease-in-out;
     }
 
-    & .open {
+    & .sidebar-open {
         grid-template-columns: var(--size-sidebar) auto;
     }
 

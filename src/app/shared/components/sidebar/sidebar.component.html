@@ -1,8 +1,8 @@
 <nav>
     <div class="nav__container" 
         [ngClass]="{
-        'open-nav' : !isCollapse,
-        'is-collapse-nav' : isCollapse,
+        'open-nav' : !menusService.isCollapse(),
+        'is-collapse-nav' : menusService.isCollapse(),
         }">
         <div class="block__menu">
             <section class="nav__header">
@@ -10,21 +10,10 @@
                 width="35" 
                 height="35" 
                 alt="logo company"
-                (click)="collapseSidebar()"
+                (click)="menusService.collapseSidebar()"
                 [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/logo/logo.svg'"
                 class="cursor--pointer"
                 >    
-                <!-- TODO: Verificar si la cambio o se queda -->
-                <!-- <img
-                width="70" 
-                height="35" 
-                priority
-                alt="logo company"
-                [ngClass]="{
-                    'opacity-1' : !isCollapse,
-                    'opacity-0' : isCollapse,}"
-                [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/logo/logo-isologo.svg'"
-                >     -->
 
             </section>
         
@@ -37,17 +26,17 @@
                         font__weight--medium
                         "
                         [ngClass]="{
-                        'opacity-1' : !isCollapse,
-                        'opacity-0' : isCollapse,}"
+                        'opacity-1' : !menusService.isCollapse(),
+                        'opacity-0' : menusService.isCollapse(),}"
                         > 
                         {{ 'menu.group-nav' | translate:translateService.GetLang  }}
                     </p>
                     <ul>
-                        @for (menu of navigationMenu; track navigationMenu) {
+                        @for (menu of menusService.navigationMenu(); track menusService.navigationMenu()) {
                             <li>
                                 <a  [routerLink]="menu.router" 
                                     class="link--menu"
-                                    (click)="collapseAllDropdowns()"
+                                    (click)="menusService.collapseAllDropdowns()"
                                     >
                                     <div class="grid__link"
                                         routerLinkActive="active"
@@ -65,8 +54,8 @@
                                                 font__weight--regular
                                                 "
                                                 [ngClass]="{
-                                                'opacity-1' : !isCollapse,
-                                                'opacity-0' : isCollapse,}"
+                                                'opacity-1' : !menusService.isCollapse(),
+                                                'opacity-0' : menusService.isCollapse(),}"
                                                 >
                                             {{ menu.txt | translate:translateService.GetLang }}
                                         </p>
@@ -85,17 +74,17 @@
                         font__weight--medium
                         "
                         [ngClass]="{
-                        'opacity-1' : !isCollapse,
-                        'opacity-0' : isCollapse,}"
+                        'opacity-1' : !menusService.isCollapse(),
+                        'opacity-0' : menusService.isCollapse(),}"
                         > 
                         {{ 'menu.group-settings' | translate:translateService.GetLang  }}
                     </p>
                     <ul>
                         <!-- translate -->
-                        <li [ngClass]="{'point-events': isCollapse}">
+                        <li [ngClass]="{'point-events': menusService.isCollapse()}">
                             <a class="link--menu">
                                 <div class="grid__link"
-                                    (click)="dropdownTranslate()">
+                                    (click)="menusService.dropdownTranslate()">
                                     <div class="icon__container">
                                         <img alt="translate icon"
                                             width="17"
@@ -109,8 +98,8 @@
                                             font__weight--regular
                                             "
                                             [ngClass]="{
-                                            'opacity-1' : !isCollapse,
-                                            'opacity-0' : isCollapse,}"
+                                            'opacity-1' : !menusService.isCollapse(),
+                                            'opacity-0' : menusService.isCollapse(),}"
                                             >
                                         {{ 'lang.selected' | translate:translateService.GetLang }}
                                     </p>
@@ -118,8 +107,8 @@
 
                                 <div class="dropdown--container"
                                     [ngClass]="{
-                                        'dropdown--collapse': isTranslateDropdownCollapse,
-                                        'dropdown--open': !isTranslateDropdownCollapse
+                                        'dropdown--collapse': menusService.isTranslateDropdownCollapse(),
+                                        'dropdown--open': !menusService.isTranslateDropdownCollapse()
                                     }"
                                     >
                                     <ul class="dropdown">
@@ -164,10 +153,10 @@
                         </li>
 
                         <!-- appearance -->
-                        <li [ngClass]="{'point-events': isCollapse}">
+                        <li [ngClass]="{'point-events': menusService.isCollapse()}">
                             <a class="link--menu">
                                 <div class="grid__link"
-                                    (click)="dropdownAppearance()">
+                                    (click)="menusService.dropdownAppearance()">
                                     <div class="icon__container">
                                         <img alt="translate icon"
                                             width="17"
@@ -181,8 +170,8 @@
                                             font__weight--regular
                                             "
                                             [ngClass]="{
-                                            'opacity-1' : !isCollapse,
-                                            'opacity-0' : isCollapse,}"
+                                            'opacity-1' : !menusService.isCollapse(),
+                                            'opacity-0' : menusService.isCollapse(),}"
                                             >
                                         {{ 'menu.appearance' | translate:translateService.GetLang }}
                                     </p>
@@ -190,8 +179,8 @@
 
                                 <div class="dropdown--container"
                                     [ngClass]="{
-                                        'dropdown--collapse': isAppearanceDropdownCollapse,
-                                        'dropdown--open': !isAppearanceDropdownCollapse
+                                        'dropdown--collapse': menusService.isAppearanceDropdownCollapse(),
+                                        'dropdown--open': !menusService.isAppearanceDropdownCollapse()
                                     }"
                                     >
                                     <ul class="dropdown">

@@ -47,8 +47,8 @@ export default class LoginComponent {
   showLoader:boolean  = false;
   
   public myForm:FormGroup = this._fb.group({
-    email     : [ localStorage.getItem('email') || 'fine_567@hotmail.com', [Validators.required]],
-    password  : ['Password1234', [Validators.required]],
+    email     : [ localStorage.getItem('email') || 'nico@gmail.com', [Validators.required]],
+    password  : ['Pass123?', [Validators.required]],
     remember   : [false]
   });
 

@@ -43,10 +43,10 @@ export default class CreateAccountComponent {
   showLoader:boolean  = false;
 
   public myForm:FormGroup = this._fb.group({
-    email             : ['nancy@hotmail.com', [Validators.required, Validators.pattern(this.formService.emailPattern)]],
-    fullName          : ['Nancy Cristobal', [Validators.required, Validators.minLength(3)]],
-    password          : ['Pass123?', [Validators.required, Validators.pattern(this.formService.passwordPattern)]],
-    confirmPassword   : ['Pass123?', [Validators.required]],
+    email             : ['', [Validators.required, Validators.pattern(this.formService.emailPattern)]],
+    fullName          : ['', [Validators.required, Validators.minLength(3)]],
+    password          : ['', [Validators.required, Validators.pattern(this.formService.passwordPattern)]],
+    confirmPassword   : ['', [Validators.required]],
   },{
     validators: [
       this.formService.equalFields('password','confirmPassword')

@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { AuthService } from '../auth/services/auth.service';
+import { MenusService } from '../core/services/menus.service';
 
 import { NavbarHeaderComponent } from '@shared/components/navbar-header/navbar-header.component';
 import { SidebarComponent } from '@shared/components/sidebar/sidebar.component';
@@ -22,8 +22,6 @@ import { SidebarComponent } from '@shared/components/sidebar/sidebar.component';
 })
 export default class DashboardComponent {
   
-  private authService = inject( AuthService );
-
-  public user = computed( () => this.authService.currentUser() )
+  public menusService = inject( MenusService );
 
 }
