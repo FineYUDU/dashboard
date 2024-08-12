@@ -1,0 +1,58 @@
+<div>
+    <div 
+        (click)="toggleDropdown()" 
+        class="container">
+        <img 
+            width="20"
+            height="20"
+            alt="Icon translate"
+            [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/icon/icon-translate.svg'" 
+        >
+
+        <p class="
+            font__size--b2 
+            font__weight--medium"
+            > 
+            {{'lang.selected' | translate:translateService.GetLang }} 
+        </p>
+
+        <img
+            width="12"
+            height="12"
+            alt="Icon translate"
+            [ngSrc]="'../../../../assets/theme/'+themeService.GetMode+'/icon/icon-chevron.svg'" 
+            [ngClass]="{
+                'rotate-open': isDropdownOpen, 
+                'rotate-close': !isDropdownOpen 
+            }"
+        >
+
+        <div class="dropdown__list"
+            [ngClass]="{
+                'dropdown-open': isDropdownOpen,
+                'dropdown-close': !isDropdownOpen,
+            }">
+            <ul>
+                <li class="
+                        font__size--b2 
+                        font__weight--medium" 
+                    [ngClass]="{'selected': translateService.GetLang === 'es'}"
+                    (click)="translateService.toggleLang('es')">
+                    {{'lang.es' | translate:translateService.GetLang }} 
+                </li>
+                <li class=" 
+                        font__size--b2 
+                        font__weight--medium" 
+                    [ngClass]="{'selected': translateService.GetLang === 'en'}"
+                    (click)="translateService.toggleLang('en')"> 
+                    {{'lang.en' | translate:translateService.GetLang }} 
+                </li>
+                
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
+

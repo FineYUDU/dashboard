@@ -178,43 +178,72 @@
         padding:var(--spacing-xs) 1rem;
         border-radius: var(--radius-minimal);
         cursor: pointer;
-        font-weight: 500;
+        font-weight: 400;
         border:none;
-        background-color: var(--fd-btn-bg-color);
-        color: var(--fd-btn-color);
+        
         & img {
-            width: .825rem;
-            height: .825rem;
+            width: 1.375rem;
+            height: 1.375rem;
         }
-        &:hover {
-            background-color: var(--fd-btn-hover-bg-color);
-            color: var(--fd-btn-hover-color);
-        }
-        &:active {
-            background-color: var(--fd-btn-active-bg-color);
-            color: var(--fd-btn-active-color);
-        }
-        &:focus-visible {
-            outline:var(--border-lg) solid var(--fd-btn-focus-outline);
-        }
-        &.btn--outline {
-            background-color: var(--fd-btn-outline-bg-color);
-            color: var(--fd-btn-txt-color);    
-            outline:var(--border-xs) solid var(--fd-btn-outline-outline-color);
+
+        // -------- Button Primary
+        &.btn--primary {
+            background-color: var(--fd-btn-bg-color);
+            color: var(--fd-btn-color);
             &:hover {
-                background-color: var(--fd-btn-outline-hover-bg-color);
-                color: var(--fd-btn-outline-hover-color);
-                outline:var(--border-xs) solid var(--fd-btn-outline-hover-outline-color);
+                background-color: var(--fd-btn-hover-bg-color);
+                color: var(--fd-btn-hover-color);
             }
             &:active {
-                background-color: var(--fd-btn-outline-active-bg-color);
-                color: var(--fd-btn-outline-active-color);
-                outline:var(--border-xs) solid var(--fd-btn-outline-active-outline-color);
+                background-color: var(--fd-btn-active-bg-color);
+                color: var(--fd-btn-active-color);
             }
             &:focus-visible {
-                outline:var(--border-lg) solid var(--fd-btn-outline-focus-outline);
+                outline:var(--border-lg) solid var(--fd-btn-focus-outline);
             }
         }
+
+        // -------- Button Outline Primary
+        &.btn--outline__primary {
+            background-color: var(--fd-btn-outline-primary-bg-color);
+            color: var(--fd-btn-outline-primary-txt-color);    
+            outline:var(--border-xs) solid var(--fd-btn-outline-primary-outline-color);
+            &:hover {
+                background-color: var(--fd-btn-outline-primary-hover-bg-color);
+                color: var(--fd-btn-outline-primary-hover-txt-color);
+                outline:var(--border-xs) solid var(--fd-btn-outline-primary-hover-outline-color);
+            }
+            &:active {
+                background-color: var(--fd-btn-outline-primary-active-bg-color);
+                color: var(--fd-btn-outline-primary-active-txt-color);
+                outline:var(--border-xs) solid var(--fd-btn-outline-primary-active-outline-color);
+            }
+            &:focus-visible {
+                outline:var(--border-lg) solid var(--fd-btn-outline-primary-focus-outline);
+            }
+        }
+
+        // -------- Button Outline Secondary
+        &.btn--outline__secondary {
+            background-color: var(--fd-btn-outline-secondary-bg-color);
+            color: var(--fd-btn-outline-secondary-txt-color);    
+            outline:var(--border-xs) solid var(--fd-btn-outline-secondary-outline-color);
+            &:hover {
+                background-color: var(--fd-btn-outline-secondary-hover-bg-color);
+                color: var(--fd-btn-outline-secondary-hover-txt-color);
+                outline:var(--border-xs) solid var(--fd-btn-outline-secondary-hover-outline-color);
+            }
+            &:active {
+                background-color: var(--fd-btn-outline-secondary-active-bg-color);
+                color: var(--fd-btn-outline-secondary-active-txt-color);
+                outline:var(--border-xs) solid var(--fd-btn-outline-secondary-active-outline-color);
+            }
+            &:focus-visible {
+                outline:var(--border-lg) solid var(--fd-btn-outline-secondary-focus-outline);
+            }
+        }
+
+        // -------- Button Success
         &.btn--success {
             background-color: var(--fd-btn-success-bg-color);
             color: var(--fd-btn-success-txt-color);    

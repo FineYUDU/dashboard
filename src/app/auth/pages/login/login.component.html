@@ -13,7 +13,7 @@
     <form 
     [formGroup]="myForm" 
     autocomplete="off" 
-    (ngSubmit)="onSubmit()"
+    (ngSubmit)="loginOnSubmit()"
     class="form__container"
         >
         <input-field
@@ -22,7 +22,7 @@
             [showIcon]="true"
             [iconName]="'icon-user'"
             formControlName="email"
-            [isSubmitted]="formService.isInvalidField( myForm, 'email', isSubmitted ) || isPassUserInvalid"
+            [isSubmitted]="formService.isInvalidField( myForm, 'email', isSubmitted ) || isErrorService"
             [errorMessage]="formService.errorMessage(myForm,'email') | translate:translateService.GetLang"
         />
         <input-field
@@ -33,7 +33,7 @@
             [iconEye]="true"
             [inputType]="'password'"
             formControlName="password"
-            [isSubmitted]="formService.isInvalidField( myForm, 'password', isSubmitted ) || isPassUserInvalid"
+            [isSubmitted]="formService.isInvalidField( myForm, 'password', isSubmitted ) || isErrorService"
             [errorMessage]="formService.errorMessage(myForm,'password') | translate:translateService.GetLang"
         />
         <div class="checkbox__block">
@@ -42,6 +42,13 @@
                 font__weight--medium
                 font__color--quaternary
                 ">
+                <div class="checkbox" [ngClass]="{'selected': myForm.controls['remember'].value === true}">
+                    <img 
+                        height="13"
+                        width="13"
+                        [ngSrc]="'../../assets/theme/'+themeService.GetMode+'/icon/icon-input-checked.svg'">
+
+                </div>
                 <input  id="checkbox-signin"
                         type="checkbox"
                         formControlName="remember"
@@ -50,7 +57,7 @@
             </label>
         </div>
         
-        <button class="btn w--100" style="height: 37px;" type="submit">
+        <button class="btn btn--primary w--100" style="height: 37px;" type="submit">
             @if (showLoader) {
                 <loader></loader>
             } @else {
@@ -58,14 +65,14 @@
             }
         </button>
         
-        @if (isPassUserInvalid) {
+        @if (isErrorService) {
             <span class="
                 font__size--b2
                 font__weight--regular 
                 font__color--danger
                 input--error_msn
                 ">
-                {{'msn-error.userPassInvalid' | translate:translateService.GetLang}}
+                {{ msnServiceError | translate:translateService.GetLang}}
             </span>
         }
     </form>

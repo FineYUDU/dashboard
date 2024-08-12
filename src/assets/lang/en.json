@@ -24,7 +24,8 @@
         "minLength":"Minimum of 3 characters.",
         "userPassInvalid":"User or password invalid",
         "notEqual":"Passwords must be the same",
-        "userExist":"This user already exist"
+        "userExist":"This user already exist",
+        "service":"Error Service"
     },
     "lang": {
         "selected":"English",

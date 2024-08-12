@@ -2,11 +2,10 @@ import { CommonModule } from '@angular/common';
 import { Component, computed, effect, inject } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 
-import { ThemeService } from '@services/theme.service';
-import { TranslateService } from '@services/translate.service';
 import { AuthService } from './auth/services/auth.service';
+import { LocalStorageService } from '@services/localstorage.service';
+
 import { AuthStatus } from './auth/interfaces';
-import { LocalStorageService } from './core/services/localstorage.service';
 
 @Component({
   selector: 'app-root',
@@ -19,17 +18,18 @@ import { LocalStorageService } from './core/services/localstorage.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  
+
   private authService = inject( AuthService );
-  private localStorageService = inject( LocalStorageService );
   private router = inject( Router );
 
+  
+  public localStorageService = inject( LocalStorageService);
+
   public finishedAuthCheck = computed<boolean>( () => {
-    console.log(this.authService.authStatus() )
     if ( this.authService.authStatus() === AuthStatus.checking ) {
       return false;
     }
-
+    
     return true;
   });
 

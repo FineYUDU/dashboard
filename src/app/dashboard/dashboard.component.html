@@ -1,26 +1,17 @@
-<!-- <main [ngClass]="{
-    'open': !isCollapse,
-    'collapse': isCollapse
-    }">
+<main>
+    <div class="container">
+        <!-- Sidebar -->
+        <sidebar/>
 
-    <section class="section__menu">
-        <sidebar
-        (isCollapseSidebar)="collapseSidebar()"
-        [navigationMenu]="navigationMenu()"
-        />
-    </section>
-
-    <section class="section__components">
-        <div>
+        <section>
+            <!-- Navbar Header -->
             <navbar-header/>
-        </div>
-        <div>
+            
+            <!-- Router Outlet -->
             <router-outlet/>
-        </div>
-    </section>
+    
+        </section>
 
-</main> -->
+    </div>
 
-<router-outlet/>
-
-<!-- TODO: Refactor -->
+</main>

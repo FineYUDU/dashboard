@@ -8,8 +8,36 @@
         gap: var(--spacing-md);
     }
     .checkbox__block label {
+        position: relative;
         display: flex;
-        gap: var(--spacing-xs);
+        gap: var(--spacing-sm);
         align-items: center;
+        cursor: pointer;
+
+        input {
+            opacity: 0;
+        }
+        .checkbox {
+            position: absolute;
+            left: 0;
+            width: 1.0625rem;
+            height: 1.0625rem;
+            border-radius: .1875rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: .0625rem solid var(--fd-color-bg-primary);
+            
+            & img {
+                opacity: 0;
+            }
+            &.selected {
+                background-color: var(--fd-color-brand-primary);
+            }
+            &.selected img {
+                opacity: 1;
+                background-color: var(--fd-color-brand-primary);
+            }
+        }
     }
 }

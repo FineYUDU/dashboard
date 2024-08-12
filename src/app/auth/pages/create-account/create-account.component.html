@@ -46,11 +46,11 @@
             [errorMessage]="formService.equalFieldsMessage() | translate:translateService.GetLang"
         />
         <div class="btns--container">
-            <a class="btn btn--outline w--100" routerLink="../login">
+            <a class="btn btn--outline__primary w--100" routerLink="../login">
                 {{ 'button.back' | translate:translateService.GetLang }}
             </a>
 
-            <button class="btn w--100" type="submit">
+            <button class="btn btn--primary w--100" type="submit">
                 @if (showLoader) {
                     <loader></loader>
                 } @else {

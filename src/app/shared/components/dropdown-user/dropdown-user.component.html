@@ -4,13 +4,13 @@
         font__weight--medium
         font__color--primary
         ">
-        {{ user?.fullName }} 
+        {{ user()?.fullName }} 
         <span class="
                 font__size--b2
                 font__weight--regular
                 font__color--quaternary
                 ">
-                / {{ user?.roles }}
+                / {{ user()?.roles }}
         </span>
     </p>
     <div class="user__img" (click)="isDropdownOpen.set(!isDropdownOpen())">

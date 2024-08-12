@@ -8,7 +8,6 @@ import { AuthStatus, CheckTokenResponse, LoginResponse, User } from '../interfac
 export class AuthService {
 
     private readonly _baseUrl = enviroment.base_url;
-
     private _http = inject( HttpClient );
 
     private _currentUser = signal<User|null>(null);
@@ -18,7 +17,12 @@ export class AuthService {
     public currentUser = computed( ()=> this._currentUser() )
     public authStatus = computed( ()=> this._authStatus() )
 
+    constructor() {
+        this.checkAuthStatus().subscribe();
+    }
+
     private setAuthentication(user:User, token:string):boolean {
+
         this._currentUser.set(user);
         this._authStatus.set(AuthStatus.authenticated);
         localStorage.setItem('token', token)
@@ -41,13 +45,16 @@ export class AuthService {
 
     checkAuthStatus():Observable<boolean> {
 
-        const url = this._baseUrl;
+        const url = `${this._baseUrl}/auth/check-token`;
         const token = localStorage.getItem('token');
 
-        if(!token) return of(false);
+        if(!token) {
+            this.logout();
+            return of(false);
+        } 
 
         const headers = new HttpHeaders()
-            .set('Authorization', `Bearer ${token}`)
+            .set('Authorization', `Bearer ${ token }`);
         
         return this._http.get<CheckTokenResponse>(url, { headers })
             .pipe(
@@ -56,8 +63,15 @@ export class AuthService {
                 catchError(()=> {
                     this._authStatus.set( AuthStatus.notAuthenticated );
                     return of(false);
-                }
-            ))
+                })
+            );
         
+    }
+
+    logout() {
+        localStorage.removeItem('token');
+        this._currentUser.set(null);
+        this._authStatus.set( AuthStatus.notAuthenticated );
+    
     }
 }

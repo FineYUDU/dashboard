@@ -6,8 +6,9 @@ import { enviroment } from '../../../../enviroments/enviroment';
 
 import { TranslatePipe } from '@shared/pipes/translate.pipe';
 
-import { TranslateService } from '@services/translate.service';
+import { MenusService } from '@services/menus.service';
 import { ThemeService } from '@services/theme.service';
+import { TranslateService } from '@services/translate.service';
 
 import { NavMenu } from '@shared/interfaces/nav.interfaces';
 
@@ -29,6 +30,7 @@ export class SidebarComponent {
   
   public themeService = inject( ThemeService );
   public translateService = inject( TranslateService );
+  public menusService = inject( MenusService );
   
   isCollapse:boolean = true;
   isTranslateDropdownCollapse:boolean = true;

@@ -1,8 +1,9 @@
 @if (!finishedAuthCheck()) {
-    Loading...
+    <p class="font__color--primary">
+        Loading...
+    </p>
 }
 
 @if (finishedAuthCheck()) {
-    Hola
+    <router-outlet/>
 }
-<router-outlet/>

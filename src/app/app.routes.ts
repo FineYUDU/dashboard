@@ -1,10 +1,11 @@
 import { Routes } from '@angular/router';
 import { Page404Component } from '@shared/pages/page404/page404.component';
-import { isAuthenticatedGuard } from './auth/guard/is-authenticated.guard';
+import { privateGuard, publicGuard } from './auth/guard';
 
 export const routes: Routes = [
     {
         path:'auth',
+        canActivate:[ publicGuard ],
         loadComponent: () => import('./auth/auth.component'),
         children: [
             {
@@ -36,7 +37,7 @@ export const routes: Routes = [
     },
     {
         path:'dashboard',
-        canActivate:[ isAuthenticatedGuard ],
+        canActivate:[ privateGuard ],
         loadComponent: () => import('./dashboard/dashboard.component'),
         children: [
             {

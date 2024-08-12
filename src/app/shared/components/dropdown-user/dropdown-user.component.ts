@@ -1,15 +1,13 @@
-import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
+import { Component, computed, ElementRef, HostListener, inject, signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 
-import { LocalStorageService } from '@services/localstorage.service';
+import { TranslatePipe } from '@shared/pipes/translate.pipe';
+
+import { AuthService } from '../../../auth/services/auth.service';
+import { MenusService } from '@services/menus.service';
 import { TranslateService } from '@services/translate.service';
 
-import { TranslatePipe } from '@shared/pipes/translate.pipe';
-import { Router, RouterModule } from '@angular/router';
-import { NavMenu } from '@shared/interfaces/nav.interfaces';
-import { User } from '../../../auth/interfaces';
-import { UserService } from '../../../auth/services/user.service';
-import { MenusService } from '@services/menus.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'dropdown-user',
@@ -24,9 +22,8 @@ import { MenusService } from '@services/menus.service';
   styleUrl: './dropdown-user.component.css'
 })
 export class DropdownUserComponent {
-  private _router = inject( Router );
   private _el = inject( ElementRef );
-  private _userService = inject( UserService );
+  private _authService = inject( AuthService );
 
   public menusService = inject( MenusService );   
   public translateService = inject( TranslateService ); 
@@ -34,10 +31,8 @@ export class DropdownUserComponent {
   public isDropdownOpen = signal<boolean>(false);
   public userProfilePic = signal<string>('../../../../assets/theme/profile-pic.svg');  
 
+  public user = computed( () => this._authService.currentUser() )
 
-  get user():User | undefined {
-    return this._userService.currenUser;
-  }
 
   
   @HostListener('document:click', ['$event'])
@@ -49,8 +44,7 @@ export class DropdownUserComponent {
   }
 
   logout() {
-    this._userService.logout()
-    this._router.navigateByUrl('auth');
+    this._authService.logout()
   }
 
 }

@@ -4,12 +4,13 @@
     <section class="section__components">
         <div class="section__header">
             <img 
-                width="40"
-                height="40"
+                width="60"
+                height="60"
                 alt="company logo"
-                [ngSrc]="'../../assets/theme/'+themeService.GetMode+'/logo/logo-avatar.svg'" alt=""
+                priority
+                [ngSrc]="'../../assets/theme/'+themeService.GetMode+'/logo/logo.svg'" alt=""
             >
-            <!-- <dropdown-translate/> -->
+            <translate-dropdown/>
 
         </div>
 
